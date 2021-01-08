@@ -2,7 +2,7 @@
 <view>
   <!--header-->
   <view class="tui-header-box" style="height:{{height}}px;background:rgba(255,255,255,{{opcity}})">
-    <view class="tui-header bg-gradual-orange" style="padding-top:{{top}}px;opacity:{{opcity}}">
+    <view class="tui-header bg-gradual-orange" style="padding-top:{{top}}px;height:{{height}}px;opacity:{{opcity}}">
       个人中心
     </view>
   </view>
