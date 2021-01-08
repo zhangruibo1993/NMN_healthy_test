@@ -1,13 +1,18 @@
-<!--index.wxml-->
+<!-- 导航栏 -->
+<cu-custom bgColor="bg-gradual-orange" isBack="{{false}}">
+	<!-- <view slot="backText">返回</view> -->
+	<view slot="content">拼团</view>
+</cu-custom>
+
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="userinfo-nickname">{{userInfo.nickName}}{{cc}}</text>
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}123</text>
+    <text class="user-motto text-red">{{motto}}123</text>
   </view>
 </view>

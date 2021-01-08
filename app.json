@@ -1,13 +1,40 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/uni/index",
+    "pages/vip/vip",
+    "pages/menber/menber"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+      "cu-custom":"/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "color": "#aaaaaa",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "selectedColor": "#EFB336",
+    "list": [
+      {
+        "pagePath": "pages/uni/index",
+        "iconPath": "img/uni.png",
+        "selectedIconPath": "img/uni1.png",
+        "text": "拼团"
+      },
+      {
+        "pagePath": "pages/vip/vip",
+        "iconPath": "img/VIP.png",
+        "selectedIconPath": "img/VIP1.png",
+        "text": "VIP"
+      },
+      {
+        "pagePath": "pages/menber/menber",
+        "iconPath": "img/menber.png",
+        "selectedIconPath": "img/menber1.png",
+        "text": "个人中心"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

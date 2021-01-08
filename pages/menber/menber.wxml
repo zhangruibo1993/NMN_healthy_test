@@ -1,0 +1,5 @@
+<!-- 导航栏 -->
+<cu-custom bgColor="bg-gradual-orange" isBack="{{false}}">
+	<!-- <view slot="backText">返回</view> -->
+	<view slot="content">个人中心</view>
+</cu-custom>

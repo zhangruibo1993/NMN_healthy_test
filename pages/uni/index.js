@@ -4,6 +4,11 @@ const app = getApp()
 
 Page({
   data: {
+    cc:app.globalData.cc,
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    hidden: true,
+		current: 0,lines: 0,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
