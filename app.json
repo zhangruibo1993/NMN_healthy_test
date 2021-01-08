@@ -2,7 +2,8 @@
   "pages":[
     "pages/uni/index",
     "pages/vip/vip",
-    "pages/menber/menber"
+    "pages/menber/menber",
+    "pages/bankcarfrom/bankcarfrom"
   ],
   "window": {
     "navigationStyle": "custom"
