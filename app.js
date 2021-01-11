@@ -38,6 +38,5 @@ App({
   },
   globalData: {
     userInfo: null,
-    cc:"123"
   }
 })

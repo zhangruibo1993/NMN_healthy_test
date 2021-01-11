@@ -4,15 +4,162 @@
 	<view slot="content">拼团</view>
 </cu-custom>
 
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}{{cc}}</text>
-    </block>
+<view class="cu-bar bg-white solid-bottom ">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 永远第一
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto text-red">{{motto}}123</text>
+  <view class="cu-list menu-avatar">
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
+        <view class="cu-tag badge">团长</view>
+      </view>
+      <view class="content">
+        <view class="text-grey">
+          <text class="text-cut">{{userInfo.nickName}}</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">你永远的团长且长生不老</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="flex-sub text-center">
+          <view class="text-sl ">
+            <text class=" cuIcon-roundcheckfill text-green"></text>
+          </view>
+          <view class="text-grey text-sm">已加入</view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
+        <view class="cu-tag badge">副团长</view>
+      </view>
+      <view class="content">
+        <view class="text-grey">
+          <text class="text-cut">{{userInfo.nickName}}</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">你永远的团长且长生不老</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="flex-sub text-center">
+          <view class="text-sl ">
+            <text class=" cuIcon-roundcheckfill text-green"></text>
+          </view>
+          <view class="text-grey text-sm">已加入</view>
+        </view>
+      </view>
+    </view>
+    <!-- 1 -->
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
+        <view class="cu-tag badge">傅团长</view>
+      </view>
+      <view class="content">
+        <view class="text-grey">
+          <text class="text-cut">{{userInfo.nickName}}</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">你永远的团长且长生不老</text>
+        </view>
+      </view>
+      <view class="action">
+       <view class="flex-sub text-center">
+          <view class="text-sl ">
+            <text class=" cuIcon-roundcheckfill text-green"></text>
+          </view>
+          <view class="text-grey text-sm">已加入</view>
+        </view>
+      </view>
+    </view>
+    <!-- 2 -->
+     <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
+        <view class="cu-tag badge">会员</view>
+      </view>
+      <view class="content">
+        <view class="text-grey">
+          <text class="text-cut">{{userInfo.nickName}}</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">你永远的团长且长生不老</text>
+        </view>
+      </view>
+      <view class="action">
+       <view class="flex-sub text-center">
+          <view class="text-sl ">
+            <text class=" cuIcon-roundcheckfill text-green"></text>
+          </view>
+          <view class="text-grey text-sm">已加入</view>
+        </view>
+      </view>
+    </view>
+    <!-- 3 -->
+     <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
+        <view class="cu-tag badge">会员</view>
+      </view>
+      <view class="content">
+        <view class="text-grey">
+          <text class="text-cut">{{userInfo.nickName}}</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">你永远的团长且长生不老</text>
+        </view>
+      </view>
+      <view class="action">
+       <view class="flex-sub text-center">
+          <view class="text-sl ">
+            <text class=" cuIcon-roundcheckfill text-green"></text>
+          </view>
+          <view class="text-grey text-sm">已加入</view>
+        </view>
+      </view>
+    </view>
+    <!-- 4 -->
+     <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
+        <view class="cu-tag badge">会员</view>
+      </view>
+      <view class="content">
+        <view class="text-grey">
+          <text class="text-cut">{{userInfo.nickName}}</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">你永远的团长且长生不老</text>
+        </view>
+      </view>
+      <view class="action">
+       <view class="flex-sub text-center">
+          <view class="text-sl ">
+            <text class=" cuIcon-roundcheckfill text-green"></text>
+          </view>
+          <view class="text-grey text-sm">已加入</view>
+        </view>
+      </view>
+    </view>
+    <!-- 5 -->
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url(/static/images/my/mine_def_touxiang_3x.png);">
+        <view class="cu-tag badge">会员</view>
+      </view>
+      <view class="content">
+        <view class="text-grey">
+          <text class="text-cut">秦始皇</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">你永远的团长且长生不老</text>
+        </view>
+      </view>
+      <view class="action">
+       <view class="flex-sub text-center">
+          <view class="text-sl ">
+            <text class=" cuIcon-roundadd text-orange"></text>
+          </view>
+          <view class="text-grey text-sm">可加入</view>
+        </view>
+      </view>
+    </view>
   </view>
-</view>

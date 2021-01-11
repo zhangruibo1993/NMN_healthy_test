@@ -3,7 +3,9 @@
     "pages/uni/index",
     "pages/vip/vip",
     "pages/menber/menber",
-    "pages/bankcarfrom/bankcarfrom"
+    "pages/bankcarfrom/bankcarfrom",
+    "pages/auth/auth",
+    "pages/getphone/getphone"
   ],
   "window": {
     "navigationStyle": "custom"

@@ -53,6 +53,20 @@
 					"id": -1,
 					"name": "银行卡表单",
 					"pathName": "pages/bankcarfrom/bankcarfrom",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "获取手机号码",
+					"pathName": "pages/getphone/getphone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "微信授权",
+					"pathName": "pages/auth/auth",
 					"scene": null
 				}
 			]

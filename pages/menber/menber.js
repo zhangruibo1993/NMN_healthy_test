@@ -5,6 +5,7 @@ Page({
     scrollH: 0, //滚动总高度
     opcity: 0,
     iconOpcity: 0.5,
+    a:true,
     productList: [{
         img: 1,
         name: "欧莱雅（LOREAL）奇焕光彩粉嫩透亮修颜霜 30ml（欧莱雅彩妆 BB霜 粉BB 遮瑕疵 隔离）",

@@ -3,3 +3,20 @@
 	<!-- <view slot="backText">返回</view> -->
 	<view slot="content">VIP</view>
 </cu-custom>
+
+<view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xl padding">
+        <text class="text-black text-bold">购买一瓶即可成为VIP！</text>
+      </view>
+      <view class="padding">现在购买立即享有7折优惠！！</view>
+    </view>
+  </view>
+<view class="cu-bar bg-white tabbar border shop fixed-bottom">
+	<view class="solid-bottom text-xxl padding " >
+			<text class="text-bold text-black">一瓶:</text>
+		<text class="text-price text-red">1688.00</text>
+		<text class="tui-factory-price">￥2000.00</text>
+	</view>
+	<view class="submit {{arrearsmoney==0?'bg-grey light':'bg-orange'}}"bindtap="rechargemoney">立即抢购</view>
+</view>

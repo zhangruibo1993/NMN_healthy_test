@@ -1,1 +1,15 @@
-/* pages/vip/vip.wxss */
+page{
+  padding-bottom:200rpx;
+}
+.fixed-bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.tui-factory-price {
+  font-size: 24rpx;
+  color: #a0a0a0;
+  text-decoration: line-through;
+  padding-left: 12rpx;
+}
