@@ -174,10 +174,4 @@
       </view>
     </view>
   </view>
-   <tui-modal show="{{modal8}}" bind:cancel="hide8" custom="{{true}}">
-    <view class="tui-modal-custom">
-      <image src="../../../static/images/chat/fail.png" class="tui-tips-img"></image>
-      <view class="tui-modal-custom-text">我是自定内容</view>
-      <tui-button type="danger" shape="circle" tui-button-class="tui-btn-mtop" bind:click="handleClick8">确定</tui-button>
-    </view>
-  </tui-modal>
+  <gao-login></gao-login>

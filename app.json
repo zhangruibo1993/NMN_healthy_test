@@ -3,6 +3,7 @@
     "pages/uni/index",
     "pages/vip/vip",
     "pages/menber/menber",
+    "pages/basics/auth/auth",
     "pages/bankcar/bankcar",
     "pages/bankcarfrom/bankcarfrom",
     "pages/auth/auth",

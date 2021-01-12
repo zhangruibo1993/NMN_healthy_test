@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "tui-icon": "../../components/icon/icon",
-    "tui-modal": "../../components/modal/modal"
+    "tui-modal": "../../components/modal/modal",
+    "gao-login":"../basics/auth/auth"
   }
 }
