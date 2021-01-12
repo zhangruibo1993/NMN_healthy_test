@@ -31,8 +31,8 @@
   transform: translateX(100%);
 }
 .tui-animation {
-  -webkit-animation: tui-rolling 12s linear infinite;
-  animation: tui-rolling 12s linear infinite;
+  -webkit-animation: tui-rolling 11s linear infinite;
+  animation: tui-rolling 11s linear infinite;
 }
 @-webkit-keyframes tui-rolling {
   0% {

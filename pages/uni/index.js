@@ -13,16 +13,12 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+
     animation:false,
-    intervalT: null,
-    pace: 1.2, //滚动速度
-    interval: 20, //时间间隔
-    size: 24, //字体大小in px
-    length: 0, //字体宽度
-    offsetLeft: 0, //
-    windowWidth: 0,
+    modal8: true,
+   
   
-    text: "公告  测试测试测试测试测试测试测试测试测试测试测试测试测试"
+    text: "NMN大麦抗细胞衰老因子让你长生不老测试测试测试测试测试测试测试"
   },
   // 事件处理函数
   bindViewTap() {

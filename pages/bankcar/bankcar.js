@@ -5,36 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    elements: [{
-      title: '中国银行',
-      name: '653324115878669',
-      color: 'cyan',
-      icon: 'tagfill'
-    },
-    {
-      title: '中国银行',
-      name: '653324115878669',
-      color: 'blue',
-      icon: 'tagfill'
-    },
-    {
-      title: '中国银行',
-      name: '653324115878669',
-      color: 'purple',
-      icon: 'tagfill'
-    },
-    {
-      title: '中国银行 ',
-      name: '653324115878669',
-      color: 'mauve',
-      icon: 'tagfill'
-    },
-    {
-      title: '中国银行',
-      name: '653324115878669',
-      color: 'pink',
-      icon: 'tagfill'
-    },
+    color:['brown','grey','red','cyan','orange'],
+    elements: [
     {
       title: '中国银行',
       name: '653324115878669',
@@ -48,24 +20,46 @@ Page({
       icon: 'tagfill'
     },
     {
-      title: '中国银行条',
+      title: '中国银行',
       name: '653324115878669',
-      color: 'orange',
-      icon: 'tagfill'
-    },
-    {
-      title: '中国银行阴影',
-      name: '653324115878669',
-      color: 'olive',
+      color: 'red',
       icon: 'tagfill'
     },
     {
       title: '中国银行',
       name: '653324115878669',
-      color: 'green',
+      color: 'red',
       icon: 'tagfill'
     },
+    {
+      title: '中国银行',
+      name: '653324115878669',
+      color: 'red',
+      icon: 'tagfill'
+    },
+    
   ],
+  },
+  // 解绑银行卡
+  clearBankCar(e){
+    wx.showModal({
+      title: '温馨提示', //提示的标题,
+      content: '你确定要解绑该银行卡吗', //提示的内容,
+      showCancel: true, //是否显示取消按钮,
+      cancelText: '取消', //取消按钮的文字，默认为取消，最多 4 个字符,
+      cancelColor: '#000000', //取消按钮的文字颜色,
+      confirmText: '确定', //确定按钮的文字，默认为取消，最多 4 个字符,
+      confirmColor: '#3CC51F', //确定按钮的文字颜色,
+      success: res => {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          console.log("解绑银行卡",this.data.elements[e.currentTarget.dataset.bankcar])
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    });
+    
   },
 
   /**

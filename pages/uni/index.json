@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "tui-icon": "../../components/icon/icon"
+    "tui-icon": "../../components/icon/icon",
+    "tui-modal": "../../components/modal/modal"
   }
 }

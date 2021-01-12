@@ -11,16 +11,16 @@
     <tui-icon tui-icon-class="tui-rolling-icon" name-="news-fill" size='24' color='#f54f46'></tui-icon>
   </view>
   <view class="tui-scorll-view" bindtap='detail'>
-    <view class="tui-notice {{animation?'tui-animation':''}}">NMN大麦抗细胞衰老因子让你长生不老</view>
+    <view class="tui-notice {{animation?'tui-animation':''}}">{{text}}</view>
   </view>
 </view>
 
-<view class="cu-bar bg-white solid-bottom ">
+<!-- <view class="cu-bar bg-white ">
     <view class="action">
-      <text class="cuIcon-title text-orange "></text> 永远第一
+      <text class="cuIcon-title text-orange "></text> 拼团信息
     </view>
-  </view>
-  <view class="cu-list menu-avatar">
+</view> -->
+  <view class="cu-list menu-avatar margin-lg">
     <view class="cu-item">
       <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
         <view class="cu-tag badge">团长</view>
@@ -174,3 +174,10 @@
       </view>
     </view>
   </view>
+   <tui-modal show="{{modal8}}" bind:cancel="hide8" custom="{{true}}">
+    <view class="tui-modal-custom">
+      <image src="../../../static/images/chat/fail.png" class="tui-tips-img"></image>
+      <view class="tui-modal-custom-text">我是自定内容</view>
+      <tui-button type="danger" shape="circle" tui-button-class="tui-btn-mtop" bind:click="handleClick8">确定</tui-button>
+    </view>
+  </tui-modal>

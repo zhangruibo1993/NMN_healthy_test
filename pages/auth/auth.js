@@ -10,7 +10,6 @@ Page({
         code:"",
     },
     handleGetUserInfo(e) {
-     
         //获取code
         wx.login({
             timeout: 10000,

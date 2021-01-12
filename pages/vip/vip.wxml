@@ -1,18 +1,18 @@
 <!-- 导航栏 -->
 <cu-custom bgColor="bg-gradual-orange" isBack="{{false}}">
 	<!-- <view slot="backText">返回</view> -->
-	<view slot="content">VIP</view>
+	<view slot="content">特惠立购</view>
 </cu-custom>
 
 <!-- VIP -->
 <view class="solids-bottom padding-xs flex align-center">
-    <view class="flex-sub text-center">
-      <view class="solid-bottom text-xl padding">
-        <text class="text-black text-bold">购买一瓶即可成为VIP！</text>
-      </view>
-      <view class="padding">现在购买立即享有7折优惠！！</view>
-    </view>
-  </view>
+	<view class="flex-sub text-center">
+		<view class="solid-bottom text-xl padding">
+			<text class="text-black text-bold">购买一瓶即可成为VIP！</text>
+		</view>
+		<view class="padding">现在购买立即享有7折优惠！！</view>
+	</view>
+</view>
 <view class="cu-bar bg-white tabbar border shop fixed-bottom">
 	<view class="solid-bottom text-xxl padding " >
 			<text class="text-bold text-black">一瓶:</text>
