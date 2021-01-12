@@ -12,8 +12,72 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    intervalT: null,
+    pace: 1.2, //滚动速度
+    interval: 20, //时间间隔
+    size: 24, //字体大小in px
+    length: 0, //字体宽度
+    offsetLeft: 0, //
+    windowWidth: 0,
+  
+    text: "公告  测试测试测试测试测试测试测试测试测试测试测试测试测试"
   },
+    //根据viewId查询view的宽度
+    queryViewWidth: function (viewId) {
+      //创建节点选择器
+      return new Promise(function (resolve) {
+        var query = wx.createSelectorQuery();
+        var that = this;
+        query.select('.' + viewId).boundingClientRect(function (rect) {
+          resolve(rect.width);
+        }).exec();
+      });
+    },
+    excuseAnimation: function () {
+      var that = this;
+      if (that.data.length > that.data.windowWidth) {
+        //设置循环
+        that.data.intervalT = setInterval(function () {
+          if (that.data.offsetLeft <= 0) {
+            if (that.data.offsetLeft >= -that.data.length) {
+              that.setData({
+                offsetLeft: that.data.offsetLeft - that.data.pace,
+              })
+            } else {
+              that.setData({
+                offsetLeft: that.data.windowWidth,
+              })
+            }
+          } else {
+            that.setData({
+              offsetLeft: that.data.offsetLeft - that.data.pace,
+            })
+          }
+        }, that.data.interval);
+      }
+    },
+//停止跑马灯
+stopMarquee: function () {
+  var that = this;
+  //清除旧的定时器
+  if (that.data.intervalT) {
+    clearInterval(that.data.intervalT);
+  }
+},
+//开始跑马灯
+startMarquee: function () {
+  var that = this;
+  that.stopMarquee();
+  //初始化数据
+  that.data.windowWidth = wx.getSystemInfoSync().windowWidth;
+  that.queryViewWidth('text').then(function (resolve) {
+    that.data.length = resolve;
+    console.log(that.data.length + "/" + that.data.windowWidth);
+    that.excuseAnimation();
+  });
+},
+  
   // 事件处理函数
   bindViewTap() {
     wx.navigateTo({
@@ -21,6 +85,11 @@ Page({
     })
   },
   onLoad() {
+    setTimeout(()=>{
+      this.setData({
+        animation:true
+      })
+    },600)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -47,6 +116,12 @@ Page({
         }
       })
     }
+  },
+  onShow() {
+    this.startMarquee()
+},
+  onHide(){
+    this.stopMarquee();
   },
   getUserInfo(e) {
     console.log(e)

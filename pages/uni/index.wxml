@@ -4,6 +4,12 @@
 	<view slot="content">拼团</view>
 </cu-custom>
 
+
+<!-- 滚动条 -->
+<view class="warm-prompt">
+    <view class="text" style='left:{{offsetLeft}}px'>{{text}}</view>
+  </view>
+
 <view class="cu-bar bg-white solid-bottom ">
     <view class="action">
       <text class="cuIcon-title text-orange "></text> 永远第一
