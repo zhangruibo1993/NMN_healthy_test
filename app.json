@@ -3,6 +3,7 @@
     "pages/uni/index",
     "pages/vip/vip",
     "pages/menber/menber",
+    "pages/bankcar/bankcar",
     "pages/bankcarfrom/bankcarfrom",
     "pages/auth/auth",
     "pages/getphone/getphone"
@@ -29,7 +30,7 @@
         "pagePath": "pages/vip/vip",
         "iconPath": "img/VIP.png",
         "selectedIconPath": "img/VIP1.png",
-        "text": "VIP"
+        "text": "购买"
       },
       {
         "pagePath": "pages/menber/menber",

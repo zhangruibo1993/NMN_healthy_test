@@ -1,4 +1,4 @@
-// import {baseUrl,overtime,from} from '../../utils/util.js';
+import {baseUrl,overtime,from} from '../../utils/setting.js';
 // import {login} from "../../utils/api.js";
 
 Page({
@@ -10,7 +10,7 @@ Page({
         code:"",
     },
     handleGetUserInfo(e) {
-        var _this = this;
+     
         //获取code
         wx.login({
             timeout: 10000,
@@ -22,7 +22,7 @@ Page({
                         // 解构数据
                         const { encryptedData, iv, rawData, signature } = res;
                         wx.request({
-                            url: baseUrl+'/xcx/login', //开发者服务器接口地址",
+                            url: baseUrl+'/sale/xcx/login', //开发者服务器接口地址",
                             data: { code, encryptedData, iv, rawData, signature }, //请求的参数携带上传",
                             method: 'post',
                             header:{ from, 'content-Type': 'application/json;charset=UTF-8'},
@@ -35,7 +35,9 @@ Page({
                                     wx.setStorageSync('session_key', session_key)
                                     wx.setStorageSync('token', token)
                                     console.log(token)
-                                    _this.getUserinfo();
+                                    wx.navigateBack({
+                                        delta:1,
+                                    })
                                 } 
                                 if(res.data.code == -1){
                                     wx.hideLoading()

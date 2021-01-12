@@ -6,9 +6,14 @@
 
 
 <!-- 滚动条 -->
-<view class="warm-prompt">
-    <view class="text" style='left:{{offsetLeft}}px'>{{text}}</view>
+<view class='tui-notice-board'>
+  <view class="tui-icon-bg">
+    <tui-icon tui-icon-class="tui-rolling-icon" name-="news-fill" size='24' color='#f54f46'></tui-icon>
   </view>
+  <view class="tui-scorll-view" bindtap='detail'>
+    <view class="tui-notice {{animation?'tui-animation':''}}">NMN大麦抗细胞衰老因子让你长生不老</view>
+  </view>
+</view>
 
 <view class="cu-bar bg-white solid-bottom ">
     <view class="action">

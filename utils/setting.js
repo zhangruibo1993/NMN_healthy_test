@@ -1,10 +1,10 @@
 module.exports = {
-  // baseUrl:'http://3459006650.eicp.vip/v2.0/',  //敖工本地
+  baseUrl:'http://3459006650.eicp.vip/',  //敖工本地
   // baseUrl:'https://www.luckparking.cn/v2.0/',  //服务器
   // baseUrl:'https://ichegang.szzkcg.com/v2.0/',  //临时服务器
   // baseUrl:'http://aofltest.qicp.vip/v2.0/', //花生壳
   //  baseUrl:'http://192.168.1.55:8889/v2.0/',  //周华健本地 
-  baseUrl:'http://192.168.1.111:8889/v2.0/',  //张工本地
+  // baseUrl:'http://192.168.1.111:8889/v2.0/',  //张工本地
   from:"xcx_sale",
   timeout:"1000",
   successCode:0,//请求成功
