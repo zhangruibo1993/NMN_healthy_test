@@ -1,5 +1,5 @@
 
-<tui-modal show="{{login? true:false}}" bind:cancel="hide8" custom="{{true}}">
+<tui-modal show="{{login? true:false}}"  custom="{{true}}">
     <view class="flex justify-center margin-top-xll">
       <view class="cu-avatar xll round margin-left" style="height:130rpx"><open-data type="userAvatarUrl"></open-data></view>
     </view>

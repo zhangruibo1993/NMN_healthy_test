@@ -16,10 +16,16 @@ Component({
   },
   methods:{
     getPhoneNumber: function(e) {
+      var _this=this
       wx.showLoading({
           title: '加载中',
       })
       console.log(e)
+      if(e.detail.errMsg){
+        wx.hideLoading();
+        this.triggerEvent('cancelgetphone',e.detail.errMsg)
+        return
+      }
       const session_key = wx.getStorageSync('session_key');
       const token = wx.getStorageSync('token');
       // ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -40,14 +46,12 @@ Component({
                   method: 'post',
                   header:{ session_token: token ,from,'content-Type': 'application/json;charset=UTF-8'},
                   dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
-                  success: (res) => {
+                  success: function(res)  {
                       if (res.data.code == 0) {
                           console.log(res.data.data+"11")
                           const {phone} = res.data.data
                           wx.setStorageSync('phoneNumber', phone);
-                          wx.navigateBack({
-                              delta: 1 //返回的页面数，如果 delta 大于现有页面数，则返回到首页,
-                          });
+                          _this.triggerEvent('successgetphone',phone)
                           return;
                       }
                       if (res.data.code ==402) {
@@ -70,9 +74,10 @@ Component({
                       }
 
                   },
-                  fail: (err) => {
+                  fail: function(err) {
+              
                       wx.showToast({
-                          title: '登录信息过期',
+                          title: err.data.msg,
                           icon: 'none',
                           image: '',
                           duration: 1000,
@@ -87,9 +92,10 @@ Component({
                       });
                       console.log(err)
                   },
+                
               });
           },
-          fail: () => {
+          fail: function(){
               wx.showToast({
                 title: '密匙已过期', //提示的内容,
                 icon: 'none', //图标,
@@ -100,7 +106,7 @@ Component({
               overtime();
               
           },
-          complete: () => {}
+          complete:function () {wx.hideLoading()}
       });
 
 

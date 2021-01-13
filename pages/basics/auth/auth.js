@@ -12,6 +12,12 @@ Component({
   methods:{
     handleGetUserInfo(e) {
       //获取code
+      wx.showLoading({
+        title: '加载中', //提示的内容,
+        mask: true, //显示透明蒙层，防止触摸穿透,
+        success: res => {}
+      });
+     var _this=this
       wx.login({
           timeout: 10000,
           success: (result) => {
@@ -28,16 +34,15 @@ Component({
                           header:{ from, 'content-Type': 'application/json;charset=UTF-8'},
                           contentType: 'application/json;charset=UTF-8',
                           dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
-                          success: (res) => {
+                          success: function(res)  {
                               if (res.data.code == 0) {
                                   const {session_key}=res.data.data
                                   const {token} = res.data.data
                                   wx.setStorageSync('session_key', session_key)
                                   wx.setStorageSync('token', token)
                                   console.log(token)
-                                  wx.navigateBack({
-                                      delta:1,
-                                  })
+                                  _this.triggerEvent('successLogin',token)
+                                 
                               } 
                               if(res.data.code == -1){
                                   wx.hideLoading()
@@ -50,7 +55,7 @@ Component({
                                   });
                               }
                           },
-                          fail: (err) => {
+                          fail:function(err)  {
                               wx.hideLoading()
                               wx.showToast({
                                   title: '当前无网络',
@@ -68,8 +73,12 @@ Component({
                               });
                               console.log(err)
                           },
-                          complete: () => {  }
+                          complete:function ()  {wx.hideLoading();  }
                       });
+                  },
+                  fail:function(){
+                    wx.hideLoading();
+                    _this.triggerEvent('cancelLogin',token)
                   }
               })
           }

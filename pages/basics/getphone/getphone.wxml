@@ -12,7 +12,7 @@
 </view>
 
 <view class="padding flex flex-direction margin-top-lg">
-    <button class="cu-btn bg-gradual-orange lg" open-type="getPhoneNumber"  bindgetuserinfo="getPhoneNumber">
+    <button class="cu-btn bg-gradual-orange lg" open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">
         微信登录
     </button>
 </view>

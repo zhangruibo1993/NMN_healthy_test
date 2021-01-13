@@ -13,12 +13,12 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-
     animation:false,
-    modal8: true,
-   
-  
-    text: "NMN大麦抗细胞衰老因子让你长生不老测试测试测试测试测试测试测试"
+    text: "NMN大麦抗细胞衰老因子让你长生不老测试测试测试测试测试测试测试",
+    getphone:false,//获取电话号码
+    login:false,//登录框
+    join:false,//是否成团
+
   },
   // 事件处理函数
   bindViewTap() {
@@ -26,6 +26,75 @@ Page({
       url: '../logs/logs'
     })
   },
+  // 授权弹框升起
+  uploginModal(){
+    this.setData({
+      login:true
+    })
+  },
+  // 授权弹框关闭
+  downloginModal(){
+    this.setData({
+      login:false
+    })
+  },
+  // 电话号码授权弹起
+  upgetphoneModal(){
+    this.setData({
+      getphone:true
+    })
+  },
+  //电话号码授权关闭
+  downgetphoneModal(){
+    this.setData({
+      getphone:false
+    })
+  },
+  listenLogin(e){
+    const phone =wx.getStorageSync('phone')||"";
+    this.downloginModal()
+    if(!phone){
+      this.upgetphoneModal();
+    }
+    console.log(e)
+  },
+  listengetphone(e){
+    this.downgetphoneModal();
+    console.log(e)
+  },
+  cancelLogin(){
+    this.downloginModal();
+  },
+  cancelgetphone(){
+    this.downgetphoneModal();
+  },
+  // 立即加入
+  fastjoin(){
+    const token =wx.getStorageSync('token')||"";
+    const phone =wx.getStorageSync('phone')||"";
+    
+    if(!token){
+      this.uploginModal();
+      return;
+    }else if(!phone){
+      this.upgetphoneModal();
+      return
+    }
+    wx.showToast({
+      title: '已经完成所有登录',
+    })
+  },
+  //邀请好友
+  sharefriend(){
+    const join=this.data.join
+    if(!join){
+      wx.showToast({
+        title: '请先加入',
+        icon:'none'
+      })
+    }
+  },
+
   onLoad() {
     setTimeout(()=>{
       this.setData({
