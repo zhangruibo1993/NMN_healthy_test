@@ -78,9 +78,13 @@ Component({
                   },
                   fail:function(){
                     wx.hideLoading();
-                    _this.triggerEvent('cancelLogin',token)
+                    _this.triggerEvent('cancelLogin')
                   }
               })
+          },
+          fail:function(){
+            wx.hideLoading();
+            _this.triggerEvent('cancelLogin')
           }
       });
   },

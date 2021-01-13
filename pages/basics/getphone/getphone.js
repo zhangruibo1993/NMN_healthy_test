@@ -21,7 +21,7 @@ Component({
           title: '加载中',
       })
       console.log(e)
-      if(e.detail.errMsg){
+      if(!e.detail.encryptedData){
         wx.hideLoading();
         this.triggerEvent('cancelgetphone',e.detail.errMsg)
         return
@@ -41,16 +41,16 @@ Component({
               const { encryptedData, iv } = e.detail
               console.log(iv)
               wx.request({
-                  url: baseUrl+'/xcx/phone', //开发者服务器接口地址",
+                  url: baseUrl+'/sale/xcx/phone', //开发者服务器接口地址",
                   data: { encryptedData, iv, session_key }, //请求的参数携带上传",
                   method: 'post',
                   header:{ session_token: token ,from,'content-Type': 'application/json;charset=UTF-8'},
                   dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
                   success: function(res)  {
                       if (res.data.code == 0) {
-                          console.log(res.data.data+"11")
+                          console.log(res.data.data)
                           const {phone} = res.data.data
-                          wx.setStorageSync('phoneNumber', phone);
+                          wx.setStorageSync('phone', phone);
                           _this.triggerEvent('successgetphone',phone)
                           return;
                       }

@@ -1,7 +1,5 @@
 @import "../../../colorui/main.wxss";
-page {
-    background-color: white;
-  }
+
   
   .btn_a {
       width: 70%;
