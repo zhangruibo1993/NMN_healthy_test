@@ -3,6 +3,12 @@ Component({
   data:{
 
   },
+  properties:{
+    login:{
+      type:Boolean,
+      value:false
+    }
+  },
   methods:{
     handleGetUserInfo(e) {
       //获取code

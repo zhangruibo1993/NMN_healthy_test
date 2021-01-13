@@ -4,6 +4,7 @@
     "pages/vip/vip",
     "pages/menber/menber",
     "pages/basics/auth/auth",
+    "pages/basics/getphone/getphone",
     "pages/bankcar/bankcar",
     "pages/bankcarfrom/bankcarfrom",
     "pages/auth/auth",

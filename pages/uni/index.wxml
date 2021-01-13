@@ -174,4 +174,7 @@
       </view>
     </view>
   </view>
-  <gao-login></gao-login>
+  <!-- 登录弹框 pages/basics/auth下修改 -->
+  <gao-login login="{{false}}"></gao-login>
+   <!-- 获取手机弹框 pages/basics/getphone下修改 -->
+  <gao-phone getphone="{{false}}"></gao-phone>

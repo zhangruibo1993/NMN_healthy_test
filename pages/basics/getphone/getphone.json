@@ -1,0 +1,6 @@
+{
+  "component":true,
+  "usingComponents": {
+    "tui-modal": "../../../components/modal/modal"
+  }
+}

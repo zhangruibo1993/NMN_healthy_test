@@ -2,6 +2,7 @@
   "usingComponents": {
     "tui-icon": "../../components/icon/icon",
     "tui-modal": "../../components/modal/modal",
-    "gao-login":"../basics/auth/auth"
+    "gao-login":"../basics/auth/auth",
+    "gao-phone":"../basics/getphone/getphone"
   }
 }

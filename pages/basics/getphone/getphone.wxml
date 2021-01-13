@@ -1,0 +1,19 @@
+
+<tui-modal show="{{getphone? true:false}}" bind:cancel="hide8" custom="{{true}}">
+  <view class="flex justify-center margin-top-xll">
+    <view class="cu-avatar xll round margin-left" style="height:130rpx"><open-data type="userAvatarUrl"></open-data></view>
+</view>
+
+<view class="padding-xs flex align-center">
+  <view class="flex-sub text-center">
+    <view class="solid-bottom text-black text-lg padding text-bold">申请获取以下权限</view>
+    <view class="">获得你的手机号</view>
+  </view>
+</view>
+
+<view class="padding flex flex-direction margin-top-lg">
+    <button class="cu-btn bg-gradual-orange lg" open-type="getPhoneNumber"  bindgetuserinfo="getPhoneNumber">
+        微信登录
+    </button>
+</view>
+</tui-modal>
