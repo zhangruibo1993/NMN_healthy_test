@@ -1,0 +1,24 @@
+<!-- 导航栏 -->
+<cu-custom bgColor="bg-gradual-orange" isBack="{{false}}">
+	<!-- <view slot="backText">返回</view> -->
+	<view slot="content">支付成功</view>
+</cu-custom>
+  <view class="padding-xs flex align-center">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xl padding">
+        <text class="text-black text-bold">您的订单已提交成功！</text>
+      </view>
+      <view class="padding">购买去特惠购买立享优惠！！！！</view>
+    </view>
+  </view>
+   <view class=" flex flex-direction margin-top-lg">
+      <button class="cu-btn bg-gradual-orange lg" bindtap="backuni"  >
+          返回拼团页
+      </button>
+  </view>
+  
+  <view class=" flex flex-direction margin-top">
+      <button class="cu-btn  line-orange lg" bindtap="backorderlist"  >
+          查看当前订单
+      </button>
+  </view>

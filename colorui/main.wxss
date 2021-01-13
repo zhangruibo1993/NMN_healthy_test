@@ -1352,7 +1352,7 @@ button.icon.lg {
 }
 
 .cu-list.menu-avatar>.cu-item .action {
-    width: 100rpx;
+    width: 150rpx;
     text-align: center
 }
 

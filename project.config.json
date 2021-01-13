@@ -84,6 +84,13 @@
 					"id": -1,
 					"name": "银行卡",
 					"pathName": "pages/bankcar/bankcar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "下单成功",
+					"pathName": "pages/successpay/successpay",
 					"scene": null
 				}
 			]

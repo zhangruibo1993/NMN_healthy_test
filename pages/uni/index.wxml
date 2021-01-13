@@ -34,12 +34,10 @@
         </view>
       </view>
       <view class="action">
-        <view class="flex-sub text-center">
-          <view class="text-sl ">
-            <text class=" cuIcon-roundcheckfill text-green"></text>
+          <view class="text-xxl ">
+            <text class=" cuIcon-medalfill text-orange"></text>
+              <text class="text-df text-orange">+500</text>
           </view>
-          <view class="text-grey text-sm">已加入</view>
-        </view>
       </view>
     </view>
     <view class="cu-item">
@@ -55,12 +53,10 @@
         </view>
       </view>
       <view class="action">
-        <view class="flex-sub text-center">
-          <view class="text-sl ">
-            <text class=" cuIcon-roundcheckfill text-green"></text>
+          <view class="text-xxl ">
+            <text class=" cuIcon-medalfill text-orange"></text>
+              <text class="text-df text-orange">+500</text>
           </view>
-          <view class="text-grey text-sm">已加入</view>
-        </view>
       </view>
     </view>
     <!-- 1 -->
@@ -77,12 +73,10 @@
         </view>
       </view>
       <view class="action">
-       <view class="flex-sub text-center">
-          <view class="text-sl ">
-            <text class=" cuIcon-roundcheckfill text-green"></text>
+          <view class="text-xxl ">
+            <text class=" cuIcon-medalfill text-orange"></text>
+              <text class="text-df text-orange">+500</text>
           </view>
-          <view class="text-grey text-sm">已加入</view>
-        </view>
       </view>
     </view>
     <!-- 2 -->
@@ -98,13 +92,11 @@
           <text class="text-cut">你永远的团长且长生不老</text>
         </view>
       </view>
-      <view class="action">
-       <view class="flex-sub text-center">
-          <view class="text-sl ">
-            <text class=" cuIcon-roundcheckfill text-green"></text>
+       <view class="action">
+          <view class="text-xxl ">
+            <text class=" cuIcon-medalfill text-orange"></text>
+              <text class="text-df text-orange">+500</text>
           </view>
-          <view class="text-grey text-sm">已加入</view>
-        </view>
       </view>
     </view>
     <!-- 3 -->
@@ -120,13 +112,11 @@
           <text class="text-cut">你永远的团长且长生不老</text>
         </view>
       </view>
-      <view class="action">
-       <view class="flex-sub text-center">
-          <view class="text-sl ">
-            <text class=" cuIcon-roundcheckfill text-green"></text>
+       <view class="action">
+          <view class="text-xxl ">
+            <text class=" cuIcon-medalfill text-orange"></text>
+              <text class="text-df text-orange">+500</text>
           </view>
-          <view class="text-grey text-sm">已加入</view>
-        </view>
       </view>
     </view>
     <!-- 4 -->
@@ -143,12 +133,10 @@
         </view>
       </view>
       <view class="action">
-       <view class="flex-sub text-center">
-          <view class="text-sl ">
-            <text class=" cuIcon-roundcheckfill text-green"></text>
+          <view class="text-xxl ">
+            <text class=" cuIcon-medalfill text-orange"></text>
+              <text class="text-df text-orange">+500</text>
           </view>
-          <view class="text-grey text-sm">已加入</view>
-        </view>
       </view>
     </view>
     <!-- 5 -->
@@ -164,13 +152,11 @@
           <text class="text-cut">你永远的团长且长生不老</text>
         </view>
       </view>
-      <view class="action">
-       <view class="flex-sub text-center">
-          <view class="text-sl ">
-            <text class=" cuIcon-roundadd text-orange"></text>
+       <view class="action">
+          <view class="text-xxl ">
+            <text class=" cuIcon-medalfill text-orange"></text>
+              <text class="text-df text-orange">+500</text>
           </view>
-          <view class="text-grey text-sm">可加入</view>
-        </view>
       </view>
     </view>
   </view>
