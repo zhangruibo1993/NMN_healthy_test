@@ -5,9 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    scroll:3,
   },
-
+  getviplevel(e){
+    console.log(e,e.currentTarget.dataset.index)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

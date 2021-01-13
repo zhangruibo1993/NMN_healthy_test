@@ -13,3 +13,7 @@ page{
   text-decoration: line-through;
   padding-left: 12rpx;
 }
+.steps-bottom.cu-steps .cu-item .num::before {
+  content: "\e668";
+  font-family: 'iconfont';
+}

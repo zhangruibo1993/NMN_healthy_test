@@ -4,7 +4,19 @@
 	<view slot="content">特惠立购</view>
 </cu-custom>
 
-<!-- VIP -->
+
+<!-- vip进阶图 -->
+<scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{scroll}}" scroll-with-animation>
+  <view class="cu-item {{index>scroll?'':'text-orange'}} padding-lr-xl" wx:for="{{5}}" wx:key id="scroll-{{index}}">
+   会员 {{index + 1}} <text bindtap="getviplevel" class="num" data-index="{{index + 1}}"></text>
+  </view>
+</scroll-view>
+
+
+
+<!-- VIP 内容-->
+
+
 <view class="solids-bottom padding-xs flex align-center">
 	<view class="flex-sub text-center">
 		<view class="solid-bottom text-xl padding">

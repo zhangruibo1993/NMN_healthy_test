@@ -194,50 +194,5 @@
         </view>
       </view>
     </view>
-
-    <!--为你推荐-->
-    <tui-divider size="{{28}}" bold="{{true}}" color="#333" width="50%">为你推荐</tui-divider>
-    <view class="tui-product-list">
-      <view class="tui-product-container">
-        <block wx:for="{{productList}}" wx:key="{{index}}" wx:if="{{(index+1)%2!=0}}">
-          <!--商品列表-->
-          <view class="tui-pro-item" hover-class="hover" hover-start-time="150" bindtap="detail">
-            <image src="/static/images/mall/product/{{item.img}}.jpg" class="tui-pro-img" mode="widthFix" />
-            <view class="tui-pro-content">
-              <view class="tui-pro-tit">{{item.name}}</view>
-              <view>
-                <view class="tui-pro-price">
-                  <text class="tui-sale-price">￥{{item.sale}}</text>
-                  <text class="tui-factory-price">￥{{item.factory}}</text>
-                </view>
-                <view class="tui-pro-pay">{{item.payNum}}人付款</view>
-              </view>
-            </view>
-          </view>
-          <!--商品列表-->
-          <!-- <template is="productItem" data="{{item,index:index}}" /> -->
-        </block>
-      </view>
-      <view class="tui-product-container">
-        <block wx:for="{{productList}}" wx:key="{{index}}" wx:if="{{(index+1)%2==0}}">
-          <!--商品列表-->
-          <view class="tui-pro-item" hover-class="hover" hover-start-time="150" bindtap="detail">
-            <image src="/static/images/mall/product/{{item.img}}.jpg" class="tui-pro-img" mode="widthFix" />
-            <view class="tui-pro-content">
-              <view class="tui-pro-tit">{{item.name}}</view>
-              <view>
-                <view class="tui-pro-price">
-                  <text class="tui-sale-price">￥{{item.sale}}</text>
-                  <text class="tui-factory-price">￥{{item.factory}}</text>
-                </view>
-                <view class="tui-pro-pay">{{item.payNum}}人付款</view>
-              </view>
-            </view>
-          </view>
-        </block>
-      </view>
-    </view>
-    <!--加载loadding-->
-    <tui-loadmore visible="{{loadding}}" index="{{3}}" type="red"></tui-loadmore>
   </view>
 </view>
