@@ -9,7 +9,8 @@
     "pages/bankcarfrom/bankcarfrom",
     "pages/successpay/successpay",
     "pages/auth/auth",
-    "pages/getphone/getphone"
+    "pages/getphone/getphone",
+    "pages/orderlist/orderlist"
   ],
   "window": {
     "navigationStyle": "custom"

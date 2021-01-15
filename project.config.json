@@ -91,6 +91,13 @@
 					"id": -1,
 					"name": "下单成功",
 					"pathName": "pages/successpay/successpay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单信息",
+					"pathName": "pages/orderlist/orderlist",
 					"scene": null
 				}
 			]

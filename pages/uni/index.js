@@ -84,17 +84,26 @@ Page({
       title: '已经完成所有登录',
     })
   },
-  //邀请好友
-  sharefriend(){
-    const join=this.data.join
-    if(!join){
-      wx.showToast({
-        title: '请先加入',
-        icon:'none'
-      })
-    }
-  },
 
+
+    //邀请好友
+  onShareAppMessage(res){
+  
+    if(res.from=="button"){
+      // 加入团邀请
+      if(res.target.dataset.type=="sharefriend"){
+        console.log(res,"你想给谁就给谁！")
+        return {
+          title: '邀请好友成功拼团享2000元奖励！',
+          path: '/page/uni/index?id=123',
+          imageUrl:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2279076101,2954780885&fm=26&gp=0.jpg'
+
+        }
+      }
+      
+    }
+   
+  },
   onLoad() {
     setTimeout(()=>{
       this.setData({

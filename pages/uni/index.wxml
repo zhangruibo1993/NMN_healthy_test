@@ -62,7 +62,7 @@
     <!-- 1 -->
     <view class="cu-item">
       <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
-        <view class="cu-tag badge">傅团长</view>
+        <view class="cu-tag badge">副团长</view>
       </view>
       <view class="content">
         <view class="text-grey">
@@ -168,7 +168,7 @@
   </view>
   
   <view class=" flex flex-direction margin-top">
-      <button class="cu-btn bg-gradual-orange lg" bindtap="sharefriend"  >
+      <button  open-type="share"  class="cu-btn bg-gradual-orange lg" data-type="sharefriend"  >
           邀请好友
       </button>
   </view>
