@@ -2,11 +2,11 @@ import {baseUrl,overtime,from,timeout,successCode,invalidCode,errCode} from './s
 module.exports = {
     
     http(url, method, params,switchLoading) {
-        const token = wx.getStorageSync('token') || ""
+        const session_token = wx.getStorageSync('session_token') || ""
         return new Promise(function(resolve, reject) {
             let header = {}
             if (method == 'post') {
-                if(!token){
+                if(!session_token){
                   header = {
                       'content-type': 'application/json;charset=UTF-8',
                         from,
@@ -15,16 +15,16 @@ module.exports = {
                   header = {
                       'content-type': 'application/json;charset=UTF-8',
                       from,
-                      session_token:token,
+                      session_token:session_token,
                   }
                 }
             } else if (method == 'get') {
-                console.log(token);
-                console.log(wx.getStorageSync('token'));
+                console.log(session_token);
+                console.log(wx.getStorageSync('session_token'));
               header = {
               //   'content-Type': 'application/json',
                 from,
-                session_token:token,
+                session_token:session_token,
               }
             }
             if(!switchLoading){

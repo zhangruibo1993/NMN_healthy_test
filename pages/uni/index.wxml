@@ -20,18 +20,18 @@
       <text class="cuIcon-title text-orange "></text> 拼团信息
     </view>
 </view> -->
-  <view class="cu-list menu-avatar margin-lg">
+  <view class="cu-list menu-avatar margin-lg" wx:if="{{groupShow}}">
     <view class="cu-item">
-      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
+      <view class="cu-avatar round lg" style="background-image:url({{groupInfo.chiefHeadUrl}});">
         <view class="cu-tag badge">团长</view>
       </view>
       <view class="content">
         <view class="text-grey">
-          <text class="text-cut">{{userInfo.nickName}}</text>
+          <text class="text-cut">{{groupInfo.chiefName}}</text>
         </view>
-        <view class="text-gray text-sm flex">
+        <!-- <view class="text-gray text-sm flex">
           <text class="text-cut">你永远的团长且长生不老</text>
-        </view>
+        </view> -->
       </view>
       <view class="action">
           <view class="text-xxl ">
@@ -41,15 +41,12 @@
       </view>
     </view>
     <view class="cu-item">
-      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
-        <view class="cu-tag badge">副团长</view>
+      <view class="cu-avatar round lg" style="background-image:url({{groupInfo.viceChiefOneHeadUrl}});">
+        <view class="cu-tag badge">副团长1</view>
       </view>
       <view class="content">
         <view class="text-grey">
-          <text class="text-cut">{{userInfo.nickName}}</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">你永远的团长且长生不老</text>
+          <text class="text-cut">{{groupInfo.viceChiefOneName}}</text>
         </view>
       </view>
       <view class="action">
@@ -61,15 +58,12 @@
     </view>
     <!-- 1 -->
     <view class="cu-item">
-      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
-        <view class="cu-tag badge">副团长</view>
+      <view class="cu-avatar round lg" style="background-image:url({{groupInfo.viceChiefTwoHeadUrl}});">
+        <view class="cu-tag badge">副团长2</view>
       </view>
       <view class="content">
         <view class="text-grey">
-          <text class="text-cut">{{userInfo.nickName}}</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">你永远的团长且长生不老</text>
+          <text class="text-cut">{{groupInfo.viceChiefTwoName}}</text>
         </view>
       </view>
       <view class="action">
@@ -81,15 +75,12 @@
     </view>
     <!-- 2 -->
      <view class="cu-item">
-      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
-        <view class="cu-tag badge">会员</view>
+      <view class="cu-avatar round lg" style="background-image:url({{groupInfo.leagueOneHeadUrl}});">
+        <view class="cu-tag badge">团员1</view>
       </view>
       <view class="content">
         <view class="text-grey">
-          <text class="text-cut">{{userInfo.nickName}}</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">你永远的团长且长生不老</text>
+          <text class="text-cut">{{groupInfo.leagueOneName}}</text>
         </view>
       </view>
        <view class="action">
@@ -101,15 +92,12 @@
     </view>
     <!-- 3 -->
      <view class="cu-item">
-      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
-        <view class="cu-tag badge">会员</view>
+      <view class="cu-avatar round lg" style="background-image:url({{groupInfo.leagueTwoHeadUrl}});">
+        <view class="cu-tag badge">团员2</view>
       </view>
       <view class="content">
         <view class="text-grey">
-          <text class="text-cut">{{userInfo.nickName}}</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">你永远的团长且长生不老</text>
+          <text class="text-cut">{{groupInfo.leagueTwoName}}</text>
         </view>
       </view>
        <view class="action">
@@ -121,15 +109,12 @@
     </view>
     <!-- 4 -->
      <view class="cu-item">
-      <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});">
-        <view class="cu-tag badge">会员</view>
+      <view class="cu-avatar round lg" style="background-image:url({{groupInfo.leagueThreeHeadUrl}});">
+        <view class="cu-tag badge">团员3</view>
       </view>
       <view class="content">
         <view class="text-grey">
-          <text class="text-cut">{{userInfo.nickName}}</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">你永远的团长且长生不老</text>
+          <text class="text-cut">{{groupInfo.leagueThreeName}}</text>
         </view>
       </view>
       <view class="action">
@@ -142,14 +127,11 @@
     <!-- 5 -->
     <view class="cu-item">
       <view class="cu-avatar round lg" style="background-image:url(/static/images/my/mine_def_touxiang_3x.png);">
-        <view class="cu-tag badge">会员</view>
+        <view class="cu-tag badge">团员4</view>
       </view>
       <view class="content">
         <view class="text-grey">
           <text class="text-cut">秦始皇</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">你永远的团长且长生不老</text>
         </view>
       </view>
        <view class="action">
@@ -161,17 +143,19 @@
     </view>
   </view>
   
-  <view class=" flex flex-direction margin-top-lg">
+
+  <view class=" flex flex-direction margin-top-lg" wx:if="{{purchase}}">
       <button class="cu-btn bg-gradual-orange lg" bindtap="fastjoin"  >
-          立即参与
+          立即购买参与
       </button>
   </view>
   
-  <view class=" flex flex-direction margin-top">
+  <view class=" flex flex-direction margin-top" wx:if="{{invitation}}">
       <button  open-type="share"  class="cu-btn bg-gradual-orange lg" data-type="sharefriend"  >
           邀请好友
       </button>
   </view>
+
   <!-- 登录弹框 pages/basics/auth下修改 -->
   <gao-login login="{{login}}"bindsuccessLogin="listenLogin"bindcancelLogin="cancelLogin"></gao-login>
    <!-- 获取手机弹框 pages/basics/getphone下修改 -->

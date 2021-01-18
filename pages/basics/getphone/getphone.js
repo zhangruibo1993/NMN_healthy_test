@@ -27,7 +27,7 @@ Component({
         return
       }
       const session_key = wx.getStorageSync('session_key');
-      const token = wx.getStorageSync('token');
+      const session_token = wx.getStorageSync('session_token');
       // ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
       // 检查session_key
       wx.checkSession({
@@ -44,7 +44,7 @@ Component({
                   url: baseUrl+'/sale/xcx/phone', //开发者服务器接口地址",
                   data: { encryptedData, iv, session_key }, //请求的参数携带上传",
                   method: 'post',
-                  header:{ session_token: token ,from,'content-Type': 'application/json;charset=UTF-8'},
+                  header:{ session_token: session_token ,from,'content-Type': 'application/json;charset=UTF-8'},
                   dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
                   success: function(res)  {
                       if (res.data.code == 0) {

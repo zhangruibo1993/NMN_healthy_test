@@ -37,12 +37,11 @@ Component({
                           success: function(res)  {
                               if (res.data.code == 0) {
                                   const {session_key}=res.data.data
-                                  const {token} = res.data.data
+                                  const {session_token} = res.data.data
                                   wx.setStorageSync('session_key', session_key)
-                                  wx.setStorageSync('token', token)
-                                  console.log(token)
-                                  _this.triggerEvent('successLogin',token)
-                                 
+                                  wx.setStorageSync('session_token', session_token)
+                                  console.log(session_token)
+                                  _this.triggerEvent('successLogin',session_token)
                               } 
                               if(res.data.code == -1){
                                   wx.hideLoading()

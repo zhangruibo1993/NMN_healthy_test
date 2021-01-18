@@ -1,106 +1,115 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.14.3",
-	"appid": "wx9a6c403501ab251b",
-	"projectname": "MNM",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "银行卡表单",
-					"pathName": "pages/bankcarfrom/bankcarfrom",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "获取手机号码",
-					"pathName": "pages/getphone/getphone",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "微信授权",
-					"pathName": "pages/auth/auth",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "银行卡",
-					"pathName": "pages/bankcar/bankcar",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "下单成功",
-					"pathName": "pages/successpay/successpay",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "订单信息",
-					"pathName": "pages/orderlist/orderlist",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.14.3",
+  "appid": "wx9a6c403501ab251b",
+  "projectname": "NMN",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "银行卡表单",
+          "pathName": "pages/bankcarfrom/bankcarfrom",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "获取手机号码",
+          "pathName": "pages/getphone/getphone",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "微信授权",
+          "pathName": "pages/auth/auth",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "银行卡",
+          "pathName": "pages/bankcar/bankcar",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "下单成功",
+          "pathName": "pages/successpay/successpay",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "订单信息",
+          "pathName": "pages/orderlist/orderlist",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

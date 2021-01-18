@@ -1,6 +1,8 @@
 // index.js
 // 获取应用实例
 const app = getApp()
+import {getGroup} from '../../utils/api';
+import {baseUrl,from} from '../../utils/setting.js';
 
 Page({
   data: {
@@ -18,7 +20,9 @@ Page({
     getphone:false,//获取电话号码
     login:false,//登录框
     join:false,//是否成团
-
+    groupShow : true,
+    invitation : true,
+    purchase : true
   },
   // 事件处理函数
   bindViewTap() {
@@ -70,19 +74,71 @@ Page({
   },
   // 立即加入
   fastjoin(){
-    const token =wx.getStorageSync('token')||"";
+    const session_token =wx.getStorageSync('session_token')||"";
     const phone =wx.getStorageSync('phone')||"";
-    
-    if(!token){
+    if(!session_token){
       this.uploginModal();
       return;
     }else if(!phone){
       this.upgetphoneModal();
       return
     }
-    wx.showToast({
-      title: '已经完成所有登录',
-    })
+    const money = 6000;
+    const groupId = "";
+    const groupReference = "";
+    wx.request({
+      url: baseUrl+'/sale/wx/pay', //开发者服务器接口地址",
+      data: {money,groupId,groupReference,bussinessType:'group_pay'}, //请求的参数",
+      method: 'post',
+      header:{ session_token: session_token ,from},
+      dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
+      success: res => {
+        if (res.data.code == 0) {
+          console.log(res.data.data)
+          wx.requestPayment({
+              timeStamp: res.data.data.timeStamp, //时间戳从1970年1月1日00:00:00至今的秒数,即当前的时间,
+              nonceStr: res.data.data.nonceStr, //随机字符串，长度为32个字符以下,
+              package: res.data.data.package_id, //统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*,
+              signType: 'MD5', //签名算法，暂支持 MD5,
+              paySign: res.data.data.paySign, //签名,具体签名方案参见小程序支付接口文档,
+              success: res => {
+                  console.log(res)
+                  wx.navigateTo({ url: '../timer/timer' });
+                  wx.showToast({
+                      title: '充值成功',
+                      icon: 'success',
+                      duration: 1500,
+                      mask: true
+                  });
+                  this.setData({
+                    modalName: null
+                  })
+                  return;
+              },
+              fail: (err) => {
+                  console.log(err)
+              },
+              complete: () => {
+                
+              }
+          });
+          return;
+        }
+        if(res.data.code == 402){
+          //登录失效
+        } else {
+            wx.showToast({
+                title: res.data.msg,
+                icon: 'none',
+                duration: 3000,
+                mask: true
+            });
+            return;
+        }
+      },
+      fail: () => {},
+      complete: () => {}
+    });
   },
 
 
@@ -136,10 +192,11 @@ Page({
         }
       })
     }
+    this.getGroupInfo();
   },
   onShow() {
    
-},
+  },
   onHide(){
  
   },
@@ -149,6 +206,17 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  async getGroupInfo() {
+    var groupData = await getGroup();
+    var show = true;
+    if(groupData.data){
+      show = true;
+    }
+    this.setData({
+      groupInfo: groupData,
+      groupShow: show
     })
   }
 })

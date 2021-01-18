@@ -8,8 +8,6 @@
     "pages/bankcar/bankcar",
     "pages/bankcarfrom/bankcarfrom",
     "pages/successpay/successpay",
-    "pages/auth/auth",
-    "pages/getphone/getphone",
     "pages/orderlist/orderlist"
   ],
   "window": {
@@ -34,7 +32,7 @@
         "pagePath": "pages/vip/vip",
         "iconPath": "img/VIP.png",
         "selectedIconPath": "img/VIP1.png",
-        "text": "购买"
+        "text": "特惠立购"
       },
       {
         "pagePath": "pages/menber/menber",
