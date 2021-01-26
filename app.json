@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/partner/partner",
     "pages/group/group",
     "pages/vip/vip",
     "pages/vip/productdetail/productdetail",
@@ -9,7 +10,6 @@
     "pages/mine/draw/draw",
     "pages/mine/rewardmoney/rewardmoney",
     "pages/mine/userdetail/userdetail",
-    "pages/partner/partner",
     "pages/bankcard/bankcard",
     "pages/buy/success/success",
     "pages/buy/buy",

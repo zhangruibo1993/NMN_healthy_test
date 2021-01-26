@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "notice": "../../components/notice/notice",
-    "memberinfo": "../../components/memberinfo/memberinfo",
-    "product": "../../components/product/product"
+    "product": "../../components/product/product",
+    "login": "../../components/login/login"
   }
 }

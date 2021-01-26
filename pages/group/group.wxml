@@ -4,17 +4,14 @@
 
 <view class="main">
   <!-- 用户信息 -->
-  <view class="user-info">
+  <view class="user-info" wx:if="{{isShowUserInfo}}">
     <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
     <view>{{userInfo.name}}</view>
     <view>{{userInfo.vipLevelText}}</view>
-    <view>累计拼团奖励：<text class="bonus">{{userInfo.groupTotalMoneyText}}</text></view>
+    <view>累计拼团奖励：<text>{{userInfo.groupTotalMoneyText}}</text></view>
   </view>
-
-  
   <!-- 登录按钮 -->
   <login isShow="{{isShowLogin}}" bindUpdateUserInfo="getUserInfo"></login>
-
   <!-- 拼团信息 -->
   <block wx:if="{{isShowGroupInfo}}">
     <view class="title">

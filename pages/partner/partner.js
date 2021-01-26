@@ -4,16 +4,10 @@ import { websocketUrl, from } from '../../utils/setting'
 const app = getApp()
 Page({
   data: {
-    isShowMemberInfo: false, // 是否显示用户信息组件
     isShowLogin: false, // 用户信息组件显示登录按钮还是用户信息
+    isShowProduct: false, // 是否显示商品信息，未登录时显示
     partnerNoticeText: '我是合伙人滚动信息',
     userinfo: {},
-    taskData: [
-      {id: '1', no: 1, content: '购买...'},
-      {id: '2', no: 2, content: '购买...'},
-      {id: '3', no: 3, content: '购买...'},
-      {id: '4', no: 4, content: '购买...'}
-    ],
     productData: { // 根据当前用户等级设置产品价格、数量
       price: 0,
       count: 1
@@ -30,7 +24,6 @@ Page({
     const session_token = wx.getStorageSync('session_token')
     if (!session_token) {
       this.setData({
-        isShowMemberInfo: false,
         isShowLogin: false
       })
     } else {
@@ -60,7 +53,6 @@ Page({
       const data = JSON.parse(res.data)
       if (data.code !== 0 || !data.data) return
       if (data.data.bussinessType !== 'member') return
-      console.log(data)
       this.setData({
         userInfo: data.data.memberVO
       })
@@ -85,7 +77,6 @@ Page({
         title: '请先登录',
       })
       this.setData({
-        isShowMemberInfo: true,
         isShowLogin: true
       })
     }
@@ -101,9 +92,14 @@ Page({
     // 进入页面后，从缓存中拿用户数据，判断是否登录，已登录则显示用户信息，未登录则在点击立即抢购时显示登录按钮
     const userInfo = wx.getStorageSync('userInfo')
     if (userInfo) {
+      userInfo.referenceTotalMoneyText = this.formatMoney(userInfo.referenceTotalMoney)
+      userInfo.teamTotalMoneyText = this.formatMoney(userInfo.teamTotalMoney)
       this.setData({
-        isShowMemberInfo: true,
         userInfo: userInfo
+      })
+    } else {
+      this.setData({
+        isShowProduct: true
       })
     }
   },
@@ -114,8 +110,12 @@ Page({
     })
       .then(res => {
         this.setProductPrice(res.data.vipLevel)
+        res.data.referenceTotalMoneyText = this.formatMoney(res.data.referenceTotalMoney)
+        res.data.teamTotalMoneyText = this.formatMoney(res.data.teamTotalMoney)
         this.setData({
-          userInfo: res.data
+          userInfo: res.data,
+          isShowLogin: false,
+          isShowProduct: false
         })
         wx.setStorageSync('userInfo', res.data)
       })
@@ -148,10 +148,7 @@ Page({
       }
     })
   },
-  // memberInfo页面登录后，触发父组件更新userInfo信息
-  updateUserInfo(e) {
-    this.setData({
-      userInfo: e.detail
-    })
+  formatMoney(money) {
+    return money.toFixed(2)
   }
 })

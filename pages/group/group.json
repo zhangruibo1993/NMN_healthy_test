@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "notice": "../../components/notice/notice",
-    "memberinfo": "../../components/memberinfo/memberinfo",
     "login": "../../components/login/login"
   }
 }

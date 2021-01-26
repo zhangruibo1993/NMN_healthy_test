@@ -3,10 +3,20 @@
 <notice text="{{partnerNoticeText}}"></notice>
 
 <view class="main">
+  <!-- 登录按钮 -->
+  <login isShow="{{isShowLogin}}" bindUpdateUserInfo="getUserInfo"></login>
   <!-- 用户信息 -->
-  <memberinfo wx:if="{{isShowMemberInfo}}" isShowLogin="{{isShowLogin}}" userInfo="{{userInfo}}"></memberinfo>
-  <view class="task">
-    <view>升级到下一等级任务进度：</view>
+  <view class="user-info" wx:if="{{!isShowProduct}}">
+    <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view>{{userInfo.name}}</view>
+    <view>{{userInfo.vipLevelText}}</view>
+    <view>
+      <view>累计直推收益：<text>{{userInfo.referenceTotalMoneyText}}</text></view>
+      <view>累计团队收益：<text>{{userInfo.teamTotalMoneyText}}</text></view>
+    </view>
+  </view>
+  <view class="task" wx:if="{{!isShowProduct}}">
+    <view>升级到{{userInfo.nextVipLevelText || '下一等级'}}任务进度：</view>
     <view class="task-list" wx:for="{{userInfo.taskVOList}}" wx:key="id">
       <view class="task-row">{{item.vipLevel}}</view>
       <view class="task-row task-name">{{item.taskName}}</view>
@@ -15,10 +25,9 @@
       <view class="task-row">{{item.status}}</view>
     </view>
   </view>
-  <block wx:if="{{userInfo.isBuy === 1}}">
-    <!-- 产品信息 -->
-    <product productData="{{productData}}"></product>
-  
+  <!-- 产品信息 -->
+  <product productData="{{productData}}" wx:if="{{isShowProduct}}"></product>
+  <block wx:if="{{userInfo.isBuy === 1 || isShowProduct}}">
     <!-- 提交按钮 -->
     <view class="submit">
       <button class="weui-btn submit-btn" type="primary" bindtap="handleSubmit">立即抢购</button>

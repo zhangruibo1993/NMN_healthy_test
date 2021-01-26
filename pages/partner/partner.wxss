@@ -1,4 +1,15 @@
 /* pages/partner/partner.wxss */
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 0;
+  align-items: center;
+}
+.user-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+}
 .info {
   display: flex;
   justify-content: center;

@@ -4,7 +4,6 @@ import { websocketUrl, from } from '../../utils/setting'
 const app = getApp()
 Page({
   data: {
-    isShowMemberInfo: false, // 是否显示用户信息组件
     isShowLogin: false, // 用户信息组件显示登录按钮还是用户信息
     groupNoticeText: '我是拼团页面滚动信息',
     userInfo: {},
@@ -103,7 +102,6 @@ Page({
         title: '请先登录',
       })
       this.setData({
-        isShowMemberInfo: true,
         isShowLogin: true
       })
     }
@@ -116,7 +114,13 @@ Page({
       userInfo.groupTotalMoneyText = this.formatMoney(userInfo.groupTotalMoney)
       this.setData({
         isShowLogin: false,
+        isShowUserInfo: true,
         userInfo: userInfo
+      })
+    } else {
+      this.setData({
+        isShowOrderBtn: true,
+        isShowUserInfo: false
       })
     }
   },
@@ -127,9 +131,11 @@ Page({
     })
       .then(res => {
         this.setProductPrice(res.data.vipLevel)
-        rea.data.groupTotalMoneyText = this.formatMoney(res.data.groupTotalMoney)
+        res.data.groupTotalMoneyText = this.formatMoney(res.data.groupTotalMoney)
         this.setData({
-          userInfo: res.data
+          userInfo: res.data,
+          isShowLogin: false,
+          isShowUserInfo: true
         })
         wx.setStorageSync('userInfo', res.data)
       })
