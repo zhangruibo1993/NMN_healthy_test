@@ -1,0 +1,18 @@
+/* components/memberinfo/memberinfo.wxss */
+.info {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin: 30rpx 0;
+}
+.login {
+  margin: 30rpx 0;
+}
+.user-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+.nickname {
+  margin: 0 30rpx;
+}

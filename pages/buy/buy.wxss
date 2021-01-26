@@ -1,0 +1,19 @@
+/* pages/buy/buy.wxss */
+.address {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+  justify-content: space-between;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.address-user {
+  font-weight: bold;
+}
+.address-detail {
+  font-size: 30rpx;
+  color: #666666;
+}

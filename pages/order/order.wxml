@@ -1,0 +1,41 @@
+<!--pages/order/order.wxml-->
+<scroll-view scroll-x class="bg-white nav">
+  <view class='tab'>
+      <view class="tab-item {{item.id==currentTab?'tab-select':''}}" wx:for="{{tabMenu}}" wx:key="id" bindtap='handleTabSelect' data-id="{{item.id}}">
+          {{item.name}}
+      </view>
+  </view>
+</scroll-view>
+<scroll-view scroll-y class="order-info" wx:if="{{orderInfo.length > 0}}">
+  <view class="order-item" wx:for="{{orderInfo}}" wx:key="id">
+    <view class="order-item-row">
+      <view>编号：<text class="value">{{item.orderNumber}}</text></view>
+      <view wx:if="{{currentTab===3}}" class="{{item.status===0 ? 'notDelivery': ''}} {{item.status===1 ? 'delivery' : ''}} {{item.status===2 ? 'finish' : ''}}">{{item.statusText}}</view>
+    </view>
+    <view class="order-item-row">
+      <view>数量：<text class="value">{{item.productCount}}</text></view>
+      <view>总价：<text class="value">{{item.money}}</text></view>
+      <view class="value">{{item.sourceText}}</view>
+    </view>
+    <view class="order-item-row">
+      <text>收货人：</text>
+      <text class="value">{{item.userName}} {{item.telNumber}}</text>
+    </view>
+    <view class="order-item-row">
+      <text>地址：</text>
+      <text class="value">{{item.provinceName}}{{item.cityName}}{{item.countyName}}{{item.detailInfo}}</text>
+    </view>
+    <view class="order-item-row">
+      <text>快递：</text>
+      <text class="value">{{item.expressType}}</text>
+    </view>
+    <view class="order-item-row">
+      <text>快递单号：</text>
+      <text class="value">{{item.expressNo}}</text>
+    </view>
+  </view>
+</scroll-view>
+<!-- 暂无数据 -->
+<view class="nodata" wx:else>
+  暂无相关订单
+</view>

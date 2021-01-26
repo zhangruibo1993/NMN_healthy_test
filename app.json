@@ -1,47 +1,63 @@
 {
-  "pages":[
-    "pages/uni/index",
+  "pages": [
     "pages/vip/vip",
-    "pages/menber/menber",
-    "pages/basics/auth/auth",
-    "pages/basics/getphone/getphone",
-    "pages/bankcar/bankcar",
-    "pages/bankcarfrom/bankcarfrom",
-    "pages/successpay/successpay",
-    "pages/orderlist/orderlist"
+    "pages/vip/productdetail/productdetail",
+    "pages/mine/mine",
+    "pages/mine/moneydetail/moneydetail",
+    "pages/order/order",
+    "pages/mine/draw/draw",
+    "pages/mine/rewardmoney/rewardmoney",
+    "pages/mine/userdetail/userdetail",
+    "pages/group/group",
+    "pages/partner/partner",
+    "pages/bankcard/bankcard",
+    "pages/buy/success/success",
+    "pages/buy/buy",
+    "pages/regist/regist",
+    "pages/bankcard/add/add"
   ],
   "window": {
-    "navigationStyle": "custom"
-  },
-  "usingComponents": {
-      "cu-custom":"/colorui/components/cu-custom"
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#07C160",
+    "navigationBarTitleText": "团购乐创俱乐部",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#07C160"
   },
   "tabBar": {
     "color": "#aaaaaa",
-    "borderStyle": "white",
     "backgroundColor": "#fff",
-    "selectedColor": "#EFB336",
+    "selectedColor": "#07C160",
     "list": [
       {
-        "pagePath": "pages/uni/index",
-        "iconPath": "img/uni.png",
-        "selectedIconPath": "img/uni1.png",
-        "text": "拼团"
-      },
-      {
         "pagePath": "pages/vip/vip",
-        "iconPath": "img/VIP.png",
-        "selectedIconPath": "img/VIP1.png",
-        "text": "特惠立购"
+        "text": "特惠立购",
+        "iconPath": "icons/vip.png",
+        "selectedIconPath": "icons/vip1.png"
       },
       {
-        "pagePath": "pages/menber/menber",
-        "iconPath": "img/menber.png",
-        "selectedIconPath": "img/menber1.png",
-        "text": "个人中心"
+        "pagePath": "pages/group/group",
+        "text": "拼团",
+        "iconPath": "icons/group.png",
+        "selectedIconPath": "icons/group1.png"
+      },
+      {
+        "pagePath": "pages/partner/partner",
+        "text": "合伙人",
+        "iconPath": "icons/partner.png",
+        "selectedIconPath": "icons/partner1.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "个人中心",
+        "iconPath": "icons/mine.png",
+        "selectedIconPath": "icons/mine1.png"
       }
     ]
   },
   "style": "v2",
+  "useExtendedLib": {
+    "weui": true
+  },
   "sitemapLocation": "sitemap.json"
 }

@@ -1,0 +1,61 @@
+/* pages/mine/draw/draw.wxss */
+page {
+  background-color: #fff;
+}
+.content {
+  /* padding: 0 20rpx; */
+}
+.card-info {
+  padding: 80rpx 20rpx 80rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 50rpx;
+  background-color: #EDEDED;
+}
+.card-content {
+  display: flex;
+}
+.card-label {
+  margin-right: 30rpx;
+}
+.card-no {
+  font-weight: bold;
+}
+.tips {
+  color: #b1b2b3;
+  font-size: 26rpx;
+}
+.draw-info {
+  padding: 0 20rpx;
+}
+.draw-title {
+  line-height: 100rpx;
+}
+.input-money {
+  font-size: 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 30rpx;
+}
+.rewardmoney {
+  color: #b1b2b3;
+  font-size: 26rpx;
+}
+.input-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #F7F7F7;
+}
+.icon {
+  font-size: 80rpx;
+}
+.draw-all {
+  color: #62698b;
+  font-weight: bold;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+}
+.tips-row {
+  margin: 20rpx;
+}

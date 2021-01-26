@@ -1,0 +1,59 @@
+/* components/notice/notice.wxss */
+.volume {
+  width: 30rpx;
+  height: 30rpx;
+}
+.tui-notice-board {
+  font-size: 30rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 100%;
+  padding-right: 30rpx;
+  background: #fff8d5;
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  top: 0;
+}
+.tui-icon-bg {
+  display: flex;
+  align-items: center;
+  background: #fff8d5;
+  padding-left: 5rpx;
+  position: relative;
+  z-index: 10;
+}
+.tui-rolling-icon {
+  margin-right: 12rpx;
+}
+.tui-scorll-view {
+  flex: 1;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #f54f46;
+}
+.tui-notice{
+  transform: translateX(100%);
+}
+.tui-animation {
+  -webkit-animation: tui-rolling 11s linear infinite;
+  animation: tui-rolling 11s linear infinite;
+}
+@-webkit-keyframes tui-rolling {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-170%);
+  }
+}
+@keyframes tui-rolling {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-170%);
+  }
+}

@@ -1,0 +1,43 @@
+/* pages/order/order.wxss */
+.tab {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+}
+.tab-item {
+  flex: 1;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 0 10rpx;
+  padding: 0 20rpx;
+}
+.tab-select {
+  border-bottom: 4rpx solid;
+  color: red;
+}
+.order-item {
+  margin: 30rpx 20rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+}
+.order-info {
+  font-size: 30rpx;
+}
+.value {
+  color: #7C7C7C;
+}
+.notDelivery {
+  color: red;
+}
+.delivery {
+  color: blue;
+}
+.finish {
+  color: green;
+}

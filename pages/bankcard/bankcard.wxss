@@ -1,0 +1,43 @@
+/* pages/bankcard/bankcard.wxss */
+.main {
+  padding-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.bank-info {
+  height: 200rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  color: #ffffff;
+  padding: 20rpx;
+}
+.bank-info:nth-child(2n+1) {
+  background-color: #dc4752;
+}
+.bank-info:nth-child(2n) {
+  background-color: #0069a5;
+}
+.bank-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bank-name {
+  font-size: 32rpx;
+}
+.bank-delete {
+  border: 1rpx solid;
+  padding: 5rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+}
+.bank-no {
+  font-size: 50rpx;
+  text-align: center;
+  word-spacing: 10rpx;
+}
+.str2 {
+  font-size: 70rpx;
+}
+.bank-dialog {
+  padding: 0;
+}

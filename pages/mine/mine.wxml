@@ -1,0 +1,96 @@
+<!--pages/mine/mine.wxml-->
+<view>
+  <block wx:if="{{userInfo}}">
+    <!-- 用户信息 -->
+    <view class="user">
+      <view class="userinfo" bindtap="handleUserDetail">
+        <view class="userinfo-item">
+          <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+          <view class="user-detail">
+            <view>
+              <image class="gender" src="{{userInfo.gender === 1 ? '../../icons/male.png' : '../../icons/female.png'}}"></image>
+              <text>{{userInfo.name}}</text>
+              <view class="viplevel">当前等级：{{userInfo.vipLevelText}}</view>
+            </view>
+          </view>
+          </view>
+          <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="15"></mp-icon>
+      </view>
+      <view class="bonusinfo">
+        <view class="bonus-item"  bindtap="handleRewardMoney">
+          <view class="number">{{userInfo.moneyText}}</view>
+          <view class="bonus-label">奖励金</view>
+        </view>
+        <view class="bonus-item">
+          <view class="number">22</view>
+          <view class="bonus-label">推荐数</view>
+        </view>
+        <view class="bonus-item">
+          <view class="number">22</view>
+          <view class="bonus-label">成团数</view>
+        </view>
+      </view>
+    </view>
+    <!-- 订单信息 -->
+    <view class="block">
+      <view class="block-title">
+        <text class="block-title-text">我的订单</text>
+        <a class="order-all" bindtap="handleOrder">
+          <text class="order-all-text">查看全部订单</text>
+          <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
+        </a>
+      </view>
+      <view class="block-info">
+        <view class="order-item" bindtap="handleOrder" data-status="0">
+          <view class="order-count" wx:if="{{orderCount.notDeliveryCount}}">{{orderCount.notDeliveryCount}}</view>
+          <image class="icon-order" src="../../icons/notDeliveryCount.png"></image>
+          <view class="order-text">未发货</view>
+        </view>
+        <view class="order-item" bindtap="handleOrder" data-status="1">
+          <view class="order-count" wx:if="{{orderCount.deliveryCount}}">{{orderCount.deliveryCount}}</view>
+          <image class="icon-order" src="../../icons/deliveryCount.png"></image>
+          <view class="order-text">已发货</view>
+        </view>
+        <view class="order-item" bindtap="handleOrder" data-status="2">
+          <view class="order-count" wx:if="{{orderCount.finishCount}}">{{orderCount.finishCount}}</view>
+          <image class="icon-order" src="../../icons/finishCount.png"></image>
+          <view class="order-text">已完成</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 常用工具 -->
+    <view class="tools">
+      <view class="row" bindtap="handleBankCard">
+        <view class="tool-label">
+          <image class="icon-tools" src="../../icons/bankcard.png"></image>
+          <text>银行卡</text>
+        </view>
+        <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
+      </view>
+      <view class="row" bindtap="handleChooseAddress">
+        <view class="tool-label">
+          <image class="icon-tools" src="../../icons/address.png"></image>
+          <text>收货地址</text>
+        </view>
+        <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
+      </view>
+      <view class="row" bindtap="handleCheck">
+        <view class="tool-label">
+          <image class="icon-tools" src="../../icons/check.png"></image>
+          <text>细胞检测结果</text>
+        </view>
+        <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
+      </view>
+    </view>
+  </block>
+
+  <!-- 登录/注册 -->
+  <button size="default" class="login-btn" hover-class="none" open-type="getUserInfo" bindgetuserinfo="handleLogin" wx:else>
+    <view class="login">
+      <image class="user-avatar" src="../../icons/vip.png"></image>
+      <text>登录 / 注册</text>
+    </view>
+    <mp-icon class="arrow" icon="arrow" color="black" size="18"></mp-icon>
+  </button>
+</view>

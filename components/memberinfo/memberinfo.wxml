@@ -1,0 +1,18 @@
+<!--components/memberinfo/memberinfo.wxml-->
+<view class="login" wx:if="{{isShowLogin}}">
+  <button class="weui-btn submit-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="handleLogin">登录</button>
+</view>
+<view class="info" wx:else>
+  <view class="item headimage">
+    <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="item nickname">
+    <view>{{userInfo.name}}</view>
+    <view>{{userInfo.vipLevelText}}</view>
+  </view>
+  <view class="item level">
+    <view><text>特惠购买金额：</text><text>{{userInfo.level || 0}}</text></view>
+    <view><text>累计直推奖励：</text>{{userInfo.level || 0}}</view>
+    <view><text>累计团队奖励：</text>{{userInfo.level || 0}}</view>
+  </view>
+</view>

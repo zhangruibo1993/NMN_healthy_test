@@ -6,11 +6,11 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "enhance": true,
+    "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
-    "newFeature": true,
+    "newFeature": false,
     "coverView": true,
     "nodeModules": false,
     "autoAudits": false,
@@ -40,15 +40,14 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.14.3",
+  "libVersion": "2.14.4",
   "appid": "wx9a6c403501ab251b",
-  "projectname": "NMN",
+  "projectname": "minpro",
   "debugOptions": {
     "hidedInDevtools": []
   },
+  "scripts": {},
   "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
       "list": []
@@ -56,60 +55,17 @@
     "conversation": {
       "list": []
     },
-    "plugin": {
+    "game": {
       "list": []
     },
-    "game": {
-      "currentL": -1,
+    "plugin": {
       "list": []
     },
     "gamePlugin": {
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "id": -1,
-          "name": "银行卡表单",
-          "pathName": "pages/bankcarfrom/bankcarfrom",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "获取手机号码",
-          "pathName": "pages/getphone/getphone",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "微信授权",
-          "pathName": "pages/auth/auth",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "银行卡",
-          "pathName": "pages/bankcar/bankcar",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "下单成功",
-          "pathName": "pages/successpay/successpay",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "订单信息",
-          "pathName": "pages/orderlist/orderlist",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

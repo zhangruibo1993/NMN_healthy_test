@@ -1,0 +1,2 @@
+<!--components/login/login.wxml-->
+<button wx:if="{{isShow}}" type="primary" open-type="getUserInfo" bindgetuserinfo="handleLogin">登录</button>

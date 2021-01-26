@@ -1,7 +1,0 @@
-var bar = function (a) { 
-    total = a.toFixed(2);//保留两位小数 
-    return total;
-}
-     
-module.exports = {bar:bar}
-     

@@ -1,0 +1,13 @@
+<!--pages/mine/rewardmoney/rewardmoney.wxml-->
+<view class="main">
+  <view class="icon">
+    <text>¥</text>
+  </view>
+  <text class="my-money">我的奖励金</text>
+  <view class="row-money">
+    <text class="icon-rmb">¥</text>
+    <text class="money">{{money}}</text>
+  </view>
+  <button type="primary" class="draw" bindtap="handleDraw">提现</button>
+  <button type="primary" bindtap="handleDetail">明细</button>
+</view>

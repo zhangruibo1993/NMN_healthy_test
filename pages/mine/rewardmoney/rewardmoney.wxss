@@ -1,0 +1,36 @@
+/* pages/mine/rewardmoney/rewardmoney.wxss */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  background-color: #F6C543;
+  color: #ffffff;
+  font-size: 60rpx;
+  line-height: 100rpx;
+  margin-top: 120rpx;
+}
+.my-money {
+  margin: 50rpx 0 30rpx 0;
+}
+.row-money {
+  display: flex;
+  align-items: center;
+  margin-bottom: 200rpx;
+}
+.icon-rmb {
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-right: 10rpx;
+}
+.money {
+  font-size: 70rpx;
+}
+.draw {
+  margin-bottom: 30rpx;
+}

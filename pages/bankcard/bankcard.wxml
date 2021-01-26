@@ -1,0 +1,19 @@
+<!--pages/bankcard/bankcard.wxml-->
+<!-- 错误信息 -->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="main">
+  <!-- 银行卡列表 -->
+  <view class="bank-info" wx:for="{{bankcardInfo}}" wx:key="id">
+    <view class="bank-row">
+      <view class="bank-name">{{item.bank}}</view>
+      <view class="bank-delete" bindtap="handleDelete" data-id="{{item.id}}">解绑</view>
+    </view>
+    <view class="bank-no">
+      <text class="str1">**** **** **** </text>
+      <text class="str2">{{item.bankCardNoStr}}</text></view>
+  </view>
+  <!-- 添加银行卡 -->
+  <view class="submit">
+    <button wx:if="{{isShowAdd}}" class="weui-btn" type="primary" bindtap="handleAdd">添加银行卡</button>
+  </view>
+</view>

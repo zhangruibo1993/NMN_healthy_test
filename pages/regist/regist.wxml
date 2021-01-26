@@ -1,0 +1,31 @@
+<!--pages/regist/regist.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="title">用户信息填写</view>
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+  <mp-cells>
+    <mp-cell prop="trueName" title="用户名" ext-class="">
+      <input bindinput="formInputChange" data-field="trueName" class="weui-input" placeholder="请填写用户名"/>
+    </mp-cell>
+    <mp-cell prop="phone" title="手机号" ext-class="">
+      <input type="number" bindinput="formInputChange" data-field="phone" class="weui-input" placeholder="请填写手机号"/>
+      <view slot="footer" class="weui-vcode-btn" bindtap="handleSendValiCode">{{valiCodeText}}</view>
+    </mp-cell>
+    <mp-cell prop="valicode" title="验证码" ext-class="">
+      <input bindinput="formInputChange" data-field="valicode" class="weui-input" placeholder="请填写验证码"/>
+    </mp-cell>
+    <mp-cell prop="idCardNo" title="身份证号" ext-class="">
+      <input bindinput="formInputChange" data-field="idCardNo" class="weui-input" placeholder="请填写身份证号"/>
+    </mp-cell>
+    <!-- <mp-cell prop="address" title="收货地址" ext-class="">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+        <view class="picker">
+          {{region[0]}}，{{region[1]}}，{{region[2]}}
+        </view>
+      </picker>
+    </mp-cell>
+    <mp-cell prop="detail">
+      <textarea class="address_detail" rows="3" placeholder="详细地址" data-field="detail" bindinput="formInputChange"></textarea>
+    </mp-cell> -->
+  </mp-cells>
+</mp-form>
+<button class="weui-btn submit-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="handleSubmit">提交</button>

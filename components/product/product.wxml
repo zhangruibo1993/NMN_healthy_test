@@ -1,0 +1,21 @@
+<!--components/product/product.wxml-->
+<view class="product">
+  <!-- <image class="product-image" src="../../icons/product.jpg"></image> -->
+  <view class="row">
+    <view>商品单价</view><view>{{productData.price}}</view>
+  </view>
+  <view class="row">
+    <view>商品数量</view>
+    <view class="edit" wx:if="{{isEdit}}">
+      <text class="editbtn minus-btn" bindtap="handleMinus">-</text>
+      <input class="weui-input count-input" type="number" value="{{productData.count}}" bindconfirm="handleCountChange" />
+      <text class="editbtn plus-btn" bindtap="handlePlus">+</text>
+    </view>
+    <view wx:else>
+      {{productData.count}}
+    </view>
+  </view>
+  <view class="row">
+    <view>商品总价</view><view wx:if="{{productData.price >= 0 && productData.count > 0}}">{{productData.price * productData.count}}</view>
+  </view>
+</view>

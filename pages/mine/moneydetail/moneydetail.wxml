@@ -1,0 +1,23 @@
+<!--pages/mine/moneydetail/moneydetail.wxml-->
+<view class="main">
+  <!-- 明细列表 -->
+  <block wx:if="{{rewardList.length > 0}}">
+    <scroll-view scroll-y class="row" wx:for="{{rewardList}}" wx:key="id">
+      <view class="item item-money">
+        <text class="source">{{item.sourceName}}</text>
+        <text class="money {{item.source===1 ? 'add': ''}}">{{item.moneyText}}</text>
+      </view>
+      <view class="item item-type" wx:if="{{item.source===1}}">
+        <text class="type-name">{{item.typeName}}</text>
+        <text class="reward-from">{{item.rewardFromName}}</text>
+      </view>
+      <view class="item item-total">
+        <text class="date">{{item.date}}</text>
+        <text class="total">余额 {{item.totalText}}</text>
+      </view>
+    </scroll-view>
+  </block>
+  <view class="nodata" wx:else>
+    暂无奖励金明细数据
+  </view>
+</view>

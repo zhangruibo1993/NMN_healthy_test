@@ -1,0 +1,26 @@
+/* pages/group/group.wxss */
+.title {
+  margin: 10rpx 0;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.groupno {
+  float: right;
+  font-size: 28rpx;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+}
+.item {
+  flex: 1;
+}
+.position {
+  text-align: center;
+}
+.head-image {
+  width: 50rpx;
+  height: 50rpx;
+}

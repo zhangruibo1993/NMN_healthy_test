@@ -1,0 +1,27 @@
+<!--pages/partner/partner.wxml-->
+<!-- 走马灯 -->
+<notice text="{{partnerNoticeText}}"></notice>
+
+<view class="main">
+  <!-- 用户信息 -->
+  <memberinfo wx:if="{{isShowMemberInfo}}" isShowLogin="{{isShowLogin}}" userInfo="{{userInfo}}"></memberinfo>
+  <view class="task">
+    <view>升级到下一等级任务进度：</view>
+    <view class="task-list" wx:for="{{userInfo.taskVOList}}" wx:key="id">
+      <view class="task-row">{{item.vipLevel}}</view>
+      <view class="task-row task-name">{{item.taskName}}</view>
+      <view class="task-row">{{item.count}}</view>
+      <view class="task-row">{{item.nowCount}}</view>
+      <view class="task-row">{{item.status}}</view>
+    </view>
+  </view>
+  <block wx:if="{{userInfo.isBuy === 1}}">
+    <!-- 产品信息 -->
+    <product productData="{{productData}}"></product>
+  
+    <!-- 提交按钮 -->
+    <view class="submit">
+      <button class="weui-btn submit-btn" type="primary" bindtap="handleSubmit">立即抢购</button>
+    </view>
+  </block>
+</view>

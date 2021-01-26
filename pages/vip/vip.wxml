@@ -1,35 +1,20 @@
-<!-- 导航栏 -->
-<cu-custom bgColor="bg-gradual-orange" isBack="{{false}}">
-	<!-- <view slot="backText">返回</view> -->
-	<view slot="content">特惠立购</view>
-</cu-custom>
+<!--pages/vip/vip.wxml-->
+<!-- 走马灯 -->
+<notice text="{{vipNoticeText}}"></notice>
 
+<view class="main">
 
-<!-- vip进阶图 -->
-<scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{scroll}}" scroll-with-animation>
-  <view class="cu-item {{index>scroll?'':'text-orange'}} padding-lr-xl" wx:for="{{5}}" wx:key id="scroll-{{index}}">
-   会员 {{index + 1}} <text bindtap="getviplevel" class="num" data-index="{{index + 1}}"></text>
+  <view bindtap="handleDetail">产品详情</view>
+
+  <!-- 登录按钮 -->
+  <login isShow="{{isShowLogin}}" bindUpdateUserInfo="getUserInfo"></login>
+
+  <!-- 产品信息 -->
+  <product productData="{{productData}}" isEdit="true" bindUpdateProductCount="updateProductCount"></product>
+
+  <!-- 提交按钮 -->
+  <view class="submit">
+    <button class="weui-btn submit-btn" type="primary" bindtap="handleSubmit">立即抢购</button>
+    <button class="weui-btn submit-btn" type="primary" open-type="share">邀请好友</button>
   </view>
-</scroll-view>
-
-
-
-<!-- VIP 内容-->
-
-
-<view class="solids-bottom padding-xs flex align-center">
-	<view class="flex-sub text-center">
-		<view class="solid-bottom text-xl padding">
-			<text class="text-black text-bold">购买一瓶即可成为VIP！</text>
-		</view>
-		<view class="padding">现在购买立即享有7折优惠！！</view>
-	</view>
-</view>
-<view class="cu-bar bg-white tabbar border shop fixed-bottom">
-	<view class="solid-bottom text-xxl padding " >
-			<text class="text-bold text-black">一瓶:</text>
-		<text class="text-price text-red">1688.00</text>
-		<text class="tui-factory-price">￥2000.00</text>
-	</view>
-	<view class="submit {{arrearsmoney==0?'bg-grey light':'bg-orange'}}"bindtap="rechargemoney">立即抢购</view>
 </view>

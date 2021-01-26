@@ -1,0 +1,42 @@
+/* pages/partner/partner.wxss */
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+}
+.headimage {
+  width: 50rpx;
+  height: 50rpx;
+}
+.item {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+}
+.table-left {
+  width: 40%;
+  text-align: center;
+}
+.table-center {
+  width: 30%;
+  text-align: center;
+}
+.table-right {
+  width: 30%;
+  text-align: center;
+}
+.level {
+  display: flex;
+}
+.task-list {
+  display: flex;
+  justify-content: space-between;
+}
+.task-row {
+  flex: 1;
+}
+/* .task-name {
+} */

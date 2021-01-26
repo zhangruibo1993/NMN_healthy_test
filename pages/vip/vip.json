@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "notice": "../../components/notice/notice",
+    "product": "../../components/product/product",
+    "login": "../../components/login/login"
+  }
 }

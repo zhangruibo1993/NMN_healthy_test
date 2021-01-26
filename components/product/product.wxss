@@ -1,0 +1,30 @@
+/* components/product/product.wxss */
+.product {
+  text-align: center;
+}
+.product-image {
+  width: 500rpx;
+  height: 250rpx;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.edit {
+  display: flex;
+  align-items: center;
+}
+.count-input {
+  width: 80rpx;
+  text-align: center;
+  border: none;
+  background-color: #f2f2f2;
+}
+.editbtn {
+  font-size: 50rpx;
+  padding: 0 20rpx;
+}
+.minus-btn {
+  font-size: 60rpx;
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "奖励金提现",
+  "usingComponents": {
+    "mp-icon": "weui-miniprogram/icon/icon"
+  }
+}

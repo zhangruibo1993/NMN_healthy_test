@@ -1,0 +1,34 @@
+<!--pages/mine/draw/draw.wxml-->
+<view class="content" wx:if="{{cardList.length > 0}}">
+  <!-- 到账银行卡 -->
+  <picker mode="selector" range="{{cardList}}" range-key="showStr" value="{{currentCard}}" bindchange="handleChangeCard">
+    <view class="card-info">
+      <view class="card-content">
+        <text class="card-label">到账银行卡</text>
+        <view>
+          <view class="card-no">{{cardList[currentCard].showStr}}</view>
+          <view class="tips">预计24小时内到账</view>
+        </view>
+      </view>
+      <mp-icon icon="arrow" color="#B7B7B7" size="{{16}}"></mp-icon>
+    </view>
+  </picker>
+
+  <!-- 提现金额 -->
+  <view class="draw-info">
+    <view class="draw-title">提现金额</view>
+    <view class="input-row">
+      <text class="icon">¥</text>
+      <input class="input-money" type="digit" value="{{drawMoney}}" bindinput="handleInput" />
+    </view>
+    <view class="tips-row">
+      <text class="rewardmoney">当前奖励金余额{{rewardMoney}}元,</text>
+      <a class="draw-all" bindtap="handleDrawAll">全部提现</a>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit">
+    <button class="weui-btn" type="primary" bindtap="handleSubmit" disabled="{{isDisable}}">提现</button>
+  </view>
+</view>

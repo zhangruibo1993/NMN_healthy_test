@@ -1,0 +1,20 @@
+<!--pages/bankcard/add/add.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+  <mp-cells>
+    <mp-cell prop="bank" title="银行名称" ext-class="">
+      <input bindinput="formInputChange" data-field="bank" class="weui-input" placeholder="请填写银行名称"/>
+    </mp-cell>
+    <mp-cell prop="bankCardNo" title="卡号" ext-class="">
+      <input bindinput="formInputChange" data-field="bankCardNo" class="weui-input" placeholder="请填写卡号"/>
+    </mp-cell>
+    <mp-cell prop="phone" title="手机号" ext-class="">
+      <input type="number" bindinput="formInputChange" data-field="phone" class="weui-input" placeholder="请填写手机号"/>
+      <view slot="footer" class="weui-vcode-btn" bindtap="handleSendValiCode">{{valiCodeText}}</view>
+    </mp-cell>
+    <mp-cell prop="valicode" title="验证码" ext-class="">
+      <input bindinput="formInputChange" data-field="valicode" class="weui-input" placeholder="请填写验证码"/>
+    </mp-cell>
+  </mp-cells>
+</mp-form>
+<button class="weui-btn submit-btn" type="primary" bindtap="handleSubmit">提交</button>

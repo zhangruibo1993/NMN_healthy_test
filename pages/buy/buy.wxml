@@ -1,0 +1,31 @@
+<!--pages/buy/buy.wxml-->
+<view class="main">
+  <!-- 收货地址信息 -->
+  <view class="block-title">收货信息</view>
+  <view class="address" wx:if="{{isShowAddressBtn}}">
+    <button class="weui-btn" type="primary" bindtap="handleChooseAddress">选择收货地址</button>
+  </view>
+  <view class="address" wx:else bindtap="handleChooseAddress">
+    <view class="address-info">
+      <view class="address-user">{{addressData.userName}} {{addressData.telNumber}}</view>
+      <view class="address-detail">{{addressData.provinceName + addressData.cityName + addressData.countyName + addressData.detailInfo}}</view>
+    </view>
+    <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="15"></mp-icon>
+  </view>
+  <!-- 产品信息 -->
+  <product productData="{{productData}}" isEdit="{{false}}"></product>
+
+  <!-- 支付信息 -->
+  <view>
+    <view class="block-title">支付信息</view>
+    <view class="row">
+      <view>奖励金抵扣</view><view>{{rewardMoney}}</view>
+    </view>
+    <view class="row">
+      <view>支付金额</view><view>{{money}}</view>
+    </view>
+  </view>
+  <view class="submit">
+    <button class="weui-btn submit-btn" type="primary" bindtap="handleBuy">立即购买</button>
+  </view>
+</view>

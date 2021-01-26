@@ -1,0 +1,11 @@
+/* pages/buy/success/success.wxss */
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30%;
+}
+.info {
+  font-size: 40rpx;
+  margin: 30rpx 0;
+}

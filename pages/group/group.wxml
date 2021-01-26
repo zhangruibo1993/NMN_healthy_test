@@ -1,0 +1,40 @@
+<!--pages/group/group.wxml-->
+<!-- 走马灯 -->
+<notice text="{{groupNoticeText}}"></notice>
+
+<view class="main">
+  <!-- 用户信息 -->
+  <!-- <memberinfo wx:if="{{isShowMemberInfo}}" isShowLogin="{{isShowLogin}}" userInfo="{{userInfo}}"></memberinfo> -->
+  
+  <!-- 登录按钮 -->
+  <login isShow="{{isShowLogin}}" bindUpdateUserInfo="getUserInfo"></login>
+
+  <view>
+    <text>产品简介</text>
+  </view>
+  <!-- 拼团信息 -->
+  <block wx:if="{{isShowGroupInfo}}">
+    <view class="title">
+      <text class="user">{{user}}所在团</text><text class="groupno">编号：{{groupInfo.groupNo}}</text>
+    </view>
+    <view class="content">
+      <view class="row">
+        <view class="item position">{{groupInfo.chiefName}}</view>
+        <view class="item">
+          <image class="head-image" src="{{groupInfo.chiefHeadUrl}}">头像</image>
+        </view>
+        <view class="item bonus">
+          <view class="bonus-image"></view>
+          <view class="bonus-number">+{{groupInfo.chiefMoney}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:else>暂无拼团信息，赶快下单入团吧~</view>
+  <view class="submit">
+    <button class="weui-btn submit-btn" type="primary" bindtap="handleSubmit" wx:if="{{isShowOrderBtn}}">下单入团</button>
+    <button class="weui-btn submit-btn" type="primary" open-type="share">邀请好友</button>
+  </view>
+  <view class="product-detail">产品详情</view>
+  <view class="activity">活动规则</view>
+</view>

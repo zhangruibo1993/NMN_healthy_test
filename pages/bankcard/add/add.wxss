@@ -1,0 +1,15 @@
+/* pages/bankcard/add/add.wxss */
+.title {
+  font-size: 36rpx;
+  text-align: center;
+  margin: 20rpx auto;
+}
+.address_detail {
+  float: right;
+  border: 1px solid rgba(0,0,0,.1);
+  width: 68%;
+  height: 150rpx;
+}
+.submit-btn {
+  margin-top: 30rpx;
+}

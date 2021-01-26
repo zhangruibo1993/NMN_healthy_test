@@ -1,0 +1,9 @@
+<!--components/notice/notice.wxml-->
+<view class='tui-notice-board'>
+  <view class="tui-icon-bg">
+    <image class="volume" src="../../icons/volume.png"></image>
+  </view>
+  <view class="tui-scorll-view" bindtap='detail'>
+    <view class="tui-notice {{animation?'tui-animation':''}}">{{text}}</view>
+  </view>
+</view>
