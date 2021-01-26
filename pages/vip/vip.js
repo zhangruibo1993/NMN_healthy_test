@@ -138,10 +138,5 @@ Page({
     this.setData({
       ['productData.count']: e.detail
     })
-  },
-  handleDetail() {
-    wx.navigateTo({
-      url: '/pages/vip/productdetail/productdetail',
-    })
   }
 })

@@ -3,9 +3,6 @@
 <notice text="{{vipNoticeText}}"></notice>
 
 <view class="main">
-
-  <view bindtap="handleDetail">产品详情</view>
-
   <!-- 登录按钮 -->
   <login isShow="{{isShowLogin}}" bindUpdateUserInfo="getUserInfo"></login>
 

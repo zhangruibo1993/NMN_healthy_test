@@ -4,29 +4,134 @@
 
 <view class="main">
   <!-- 用户信息 -->
-  <!-- <memberinfo wx:if="{{isShowMemberInfo}}" isShowLogin="{{isShowLogin}}" userInfo="{{userInfo}}"></memberinfo> -->
+  <view class="user-info">
+    <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view>{{userInfo.name}}</view>
+    <view>{{userInfo.vipLevelText}}</view>
+    <view>累计拼团奖励：<text class="bonus">{{userInfo.groupTotalMoneyText}}</text></view>
+  </view>
+
   
   <!-- 登录按钮 -->
   <login isShow="{{isShowLogin}}" bindUpdateUserInfo="getUserInfo"></login>
 
-  <view>
-    <text>产品简介</text>
-  </view>
   <!-- 拼团信息 -->
   <block wx:if="{{isShowGroupInfo}}">
     <view class="title">
-      <text class="user">{{user}}所在团</text><text class="groupno">编号：{{groupInfo.groupNo}}</text>
+      <text class="user">{{groupName}}</text><text class="groupno">编号：{{groupInfo.groupNo}}</text>
     </view>
     <view class="content">
       <view class="row">
-        <view class="item position">{{groupInfo.chiefName}}</view>
-        <view class="item">
-          <image class="head-image" src="{{groupInfo.chiefHeadUrl}}">头像</image>
-        </view>
-        <view class="item bonus">
-          <view class="bonus-image"></view>
-          <view class="bonus-number">+{{groupInfo.chiefMoney}}</view>
-        </view>
+        <view class="item position">团长</view>
+        <block wx:if="{{groupInfo.chief}}">
+          <view class="item nick-info">
+            <image class="head-image" src="{{groupInfo.chiefHeadUrl}}"></image>
+            <view class="item nickname">{{groupInfo.chiefName}}</view>
+          </view>
+          <view class="item bonus">
+            <view class="bonus-number">{{groupInfo.chiefMoneyText}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="item">虚位以待</view>
+          <view class="item"></view>
+        </block>
+      </view>
+      <view class="row">
+        <view class="item position">副团长1</view>
+        <block wx:if="{{groupInfo.viceChiefOne}}">
+          <view class="item nick-info">
+            <image class="head-image" src="{{groupInfo.viceChiefOneHeadUrl}}"></image>
+            <view class="item nickname">{{groupInfo.viceChiefOneName}}</view>
+          </view>
+          <view class="item bonus">
+            <view class="bonus-number">{{groupInfo.viceChiefOneMoneyText}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="item">虚位以待</view>
+          <view class="item"></view>
+        </block>
+      </view>
+      <view class="row">
+        <view class="item position">副团长2</view>
+        <block wx:if="{{groupInfo.viceChiefTwo}}">
+          <view class="item nick-info">
+            <image class="head-image" src="{{groupInfo.viceChiefTwoHeadUrl}}"></image>
+            <view class="item nickname">{{groupInfo.viceChiefTwoName}}</view>
+          </view>
+          <view class="item bonus">
+            <view class="bonus-number">{{groupInfo.viceChiefTwoMoneyText}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="item">虚位以待</view>
+          <view class="item"></view>
+        </block>
+      </view>
+      <view class="row">
+        <view class="item position">团员1</view>
+        <block wx:if="{{groupInfo.leagueOne}}">
+          <view class="item nick-info">
+            <image class="head-image" src="{{groupInfo.leagueOneHeadUrl}}"></image>
+            <view class="item nickname">{{groupInfo.leagueOneName}}</view>
+          </view>
+          <view class="item bonus">
+            <view class="bonus-number">{{groupInfo.leagueOneMoneyText}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="item">虚位以待</view>
+          <view class="item"></view>
+        </block>
+      </view>
+      <view class="row">
+        <view class="item position">团员2</view>
+        <block wx:if="{{groupInfo.leagueTwo}}">
+          <view class="item nick-info">
+            <image class="head-image" src="{{groupInfo.leagueTwoHeadUrl}}"></image>
+            <view class="item nickname">{{groupInfo.leagueTwoName}}</view>
+          </view>
+          <view class="item bonus">
+            <view class="bonus-number">{{groupInfo.leagueTwoMoneyText}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="item">虚位以待</view>
+          <view class="item"></view>
+        </block>
+      </view>
+      <view class="row">
+        <view class="item position">团员3</view>
+        <block wx:if="{{groupInfo.leagueThree}}">
+          <view class="item nick-info">
+            <image class="head-image" src="{{groupInfo.leagueThreeHeadUrl}}"></image>
+            <view class="item nickname">{{groupInfo.leagueThreeName}}</view>
+          </view>
+          <view class="item bonus">
+            <view class="bonus-number">{{groupInfo.leagueThreeMoneyText}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="item">虚位以待</view>
+          <view class="item"></view>
+        </block>
+      </view>
+      <view class="row">
+        <view class="item position">团员4</view>
+        <block wx:if="{{groupInfo.leagueFour}}">
+          <view class="item nick-info">
+            <image class="head-image" src="{{groupInfo.leagueFourHeadUrl}}"></image>
+            <view class="item nickname">{{groupInfo.leagueFourName}}</view>
+          </view>
+          <view class="item bonus">
+            <view class="bonus-number">{{groupInfo.leagueFourMoneyText}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="item">虚位以待</view>
+          <view class="item"></view>
+        </block>
       </view>
     </view>
   </block>
@@ -35,6 +140,21 @@
     <button class="weui-btn submit-btn" type="primary" bindtap="handleSubmit" wx:if="{{isShowOrderBtn}}">下单入团</button>
     <button class="weui-btn submit-btn" type="primary" open-type="share">邀请好友</button>
   </view>
-  <view class="product-detail">产品详情</view>
-  <view class="activity">活动规则</view>
+  <view class="activity">
+    <text class="rule-title">活动规则：</text>
+    <view class="rule-detail">
+      <view class="rule-row"><text>1.</text><text>一个团7人成团, 团成员构成：团长1人，副团长2人，团员4人</text></view>
+      <view class="rule-row"><text>2.</text><text>购买3瓶NMN 10080产品后，加入推荐人所属团或系统自动分配入团</text></view>
+      <view class="rule-row"><text>3.</text><text>首次入团身份为团员，成功成团后自动分配入新团，升级为副团长，再次成团后自动分配入新团，升级为团长。团长成团后身份降为团员，加入推荐人所属团或系统自动分配入团。以此类推。</text></view>
+    </view>
+  </view>
+  <view class="reward">
+    <text class="rule-title">奖励规则：</text>
+    <view class="rule-detail">
+      <view class="rule-row"><text>1.</text><text>首次拼团获得3瓶NMN 10080产品，赠送6次细胞检测</text></view>
+      <view class="rule-row"><text>2.</text><text>邀请一个新用户入团，奖励2000元</text></view>
+      <view class="rule-row"><text>3.</text><text>团长成团成功，奖励500元</text></view>
+      <view class="rule-row"><text>4.</text><text>团长成团成功，团长的推荐人奖励1000元</text></view>
+    </view>
+  </view>
 </view>

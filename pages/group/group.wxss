@@ -1,8 +1,19 @@
 /* pages/group/group.wxss */
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 0;
+}
+.user-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+}
 .title {
   margin: 10rpx 0;
   font-size: 36rpx;
   font-weight: bold;
+  height: 36rpx;
 }
 .groupno {
   float: right;
@@ -20,7 +31,32 @@
 .position {
   text-align: center;
 }
+.nick-info {
+  display: flex;
+}
 .head-image {
   width: 50rpx;
   height: 50rpx;
+  border-radius: 50rpx;
+  margin-right: 20rpx;
+}
+.bonus-number {
+  color: #E5B247;
+  text-align: right;
+}
+.rule-title {
+  margin: 15rpx 0;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.rule-detail {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #888888;
+}
+.rule-row {
+  display: flex;
+}
+.reward {
+  margin-bottom: 30rpx;
 }

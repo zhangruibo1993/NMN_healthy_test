@@ -1,6 +1,14 @@
 <!--components/product/product.wxml-->
 <view class="product">
-  <!-- <image class="product-image" src="../../icons/product.jpg"></image> -->
+  <!-- 商品名称 -->
+  <view class="title">
+    <text class="name">NMN 10080 β-烟酰胺单核苷酸</text>
+    <view bindtap="handleDetail">
+      <text class="detail">查看详情</text>
+      <mp-icon class="arrow" icon="arrow" color="#888888" size="10"></mp-icon>
+    </view>
+  </view>
+  <image class="product-image" src="../../icons/product/product1.jpg"></image>
   <view class="row">
     <view>商品单价</view><view>{{productData.price}}</view>
   </view>

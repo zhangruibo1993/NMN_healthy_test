@@ -1,3 +1,4 @@
 <!--pages/vip/productdetail/productdetail.wxml-->
-<image src="../../../icons/product.jpg"></image>
-<!-- <view></view> -->
+<view wx:for="{{imageList}}" wx:key="id">
+  <image class="image" src="{{item.src}}" style="height: {{item.height + 'rpx'}}"></image>
+</view>

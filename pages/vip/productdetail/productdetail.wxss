@@ -1,9 +1,4 @@
 /* pages/vip/productdetail/productdetail.wxss */
 image {
   width: 100%;
-  height: 10000rpx;
 }
-/* view {
-  height: 12000rpx;
-  background-image: url(../../../icons/product.jpg) 100% 100%;
-} */

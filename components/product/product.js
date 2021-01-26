@@ -38,6 +38,11 @@ Component({
         productData.count = value
       }
       this.triggerEvent('UpdateProductCount', productData.count)
+    },
+    handleDetail() {
+      wx.navigateTo({
+        url: '/pages/vip/productdetail/productdetail',
+      })
     }
   }
 })
