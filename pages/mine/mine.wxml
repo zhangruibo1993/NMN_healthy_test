@@ -88,7 +88,7 @@
   <!-- 登录/注册 -->
   <button size="default" class="login-btn" hover-class="none" open-type="getUserInfo" bindgetuserinfo="handleLogin" wx:else>
     <view class="login">
-      <image class="user-avatar" src="../../icons/vip.png"></image>
+      <image class="user-avatar" src="../../icons/mine.png"></image>
       <text>登录 / 注册</text>
     </view>
     <mp-icon class="arrow" icon="arrow" color="black" size="18"></mp-icon>
