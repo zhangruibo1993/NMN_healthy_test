@@ -5,12 +5,15 @@ Page({
     isShowAddressBtn: false, // 是否显示选择收获地址按钮
     userInfo: {},
     rewardMoney: 0, // 奖励金抵扣金额
+    rewardMoneyText: '0.00', // 奖励金抵扣金额显示
     money: 0, // 奖励金抵扣后仍需支付金额
+    moneyText: '0.00', // 奖励金抵扣后仍需支付金额显示
     addressData: {},
     productData: {},
     bussinessType: '', // 支付时的交易类型
     group_id: '', // 拼团支付时-拼团Id
     groupReference: '', // 拼团支付时-拼团推荐人Id
+    isDisabled: false // 购买按钮是否可点击
   },
   onLoad: function (options) {
   },
@@ -63,11 +66,14 @@ Page({
     if (userInfo.money <= total) {
       this.setData({
         rewardMoney: userInfo.money,
-        money: total - userInfo.money
+        rewardMoneyText: this.formatMoney(userInfo.money),
+        money: total - userInfo.money,
+        moneyText: this.formatMoney(total - userInfo.money),
       })
     } else { // 如果用户的奖励金大于商品总价，则用奖励金抵扣即可，现金为0
       this.setData({
-        rewardMoney: total
+        rewardMoney: total,
+        rewardMoneyText: this.formatMoney(total)
       })
     }
   },
@@ -110,6 +116,9 @@ Page({
       })
     } else { // 已选择地址则开始支付逻辑
       console.log('开始支付了')
+      this.setData({
+        isDisabled: true
+      })
       const params = this.getPayParams()
       if (this.data.money === 0) {
         this.handleRewardPay(params)
@@ -122,12 +131,10 @@ Page({
   handleRewardPay(params) {
     rewardPay(params)
       .then(res => {
-        wx.redirectTo({
-          url: '../../pages/success/success',
-        })
+        this.handleSuccess()
       })
       .catch(err => {
-        console.log(err)
+        this.handleError(err)
       })
   },
   // 需要微信支付
@@ -137,7 +144,7 @@ Page({
         this.wxPay(res.data)
       })
       .catch(err => {
-        console.log(err)
+        this.handleError(err)
       })
   },
   // 获取后台支付接口参数
@@ -175,16 +182,37 @@ Page({
       package: data.package_id,
       success: res => {
         console.log('微信支付完成回调', res)
-        wx.redirectTo({
-          url: '../../pages/buy/success/success',
-        })
+        this.handleSuccess()
       },
       fail: err => {
-        console.log(err)
-        wx.redirectTo({
-          url: '../../pages/buy/success/success',
-        })
+        this.handleError(err)
       }
     })
+  },
+  // 奖励金抵扣或支付成功后的回调处理
+  handleSuccess() {
+    this.triggerUpdateWebpsocket()
+    wx.redirectTo({
+      url: '../../pages/buy/success/success',
+    })
+  },
+  // 奖励金抵扣或支付失败后的回调处理
+  handleError(err) {
+    console.log(err)
+    this.setData({
+      isDisabled: false
+    })
+    wx.showToast({
+      icon: 'none',
+      title: '支付失败，请重试',
+    })
+  },
+  // 奖励金或现金支付完成后，如果是拼团支付，更新拼团页面的websocket获取，改为获取自己团的信息
+  triggerUpdateWebpsocket() {
+    if (this.data.bussinessType !== 'group_pay') return
+    this.triggerEvent('updatewebsocket')
+  },
+  formatMoney(money) {
+    return money.toFixed(2)
   }
 })

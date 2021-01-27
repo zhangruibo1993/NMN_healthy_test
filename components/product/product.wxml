@@ -10,7 +10,7 @@
   </view>
   <image class="product-image" src="../../icons/product/product1.jpg"></image>
   <view class="row">
-    <view>商品单价</view><view>{{productData.price}}</view>
+    <view>商品单价</view><view>{{productData.price + '.00'}}</view>
   </view>
   <view class="row">
     <view>商品数量</view>
@@ -24,6 +24,6 @@
     </view>
   </view>
   <view class="row">
-    <view>商品总价</view><view wx:if="{{productData.price >= 0 && productData.count > 0}}">{{productData.price * productData.count}}</view>
+    <view>商品总价</view><view wx:if="{{productData.price >= 0 && productData.count > 0}}">{{productData.price * productData.count + '.00'}}</view>
   </view>
 </view>

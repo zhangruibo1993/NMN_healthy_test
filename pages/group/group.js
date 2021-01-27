@@ -64,8 +64,12 @@ Page({
       if (this.data.shareGroupId) {
         wsUrl = websocketUrl + '/' + from + '/' + this.data.shareGroupId
       }
-    } else { // 2、登录用户，memberId传自己的Id
-      wsUrl = websocketUrl + '/' + from + '/' + userInfo.id
+    } else { // 2、登录用户，如果已入团则memberId传自己的Id，否则传推荐人的id
+      if (userInfo.groupId) {
+        wsUrl = websocketUrl + '/' + from + '/' + userInfo.id
+      } else if (this.data.shareGroupId) {
+        wsUrl = websocketUrl + '/' + from + '/' + this.data.shareGroupId
+      }
     }
     if (!wsUrl) return
     app.wsUrl = wsUrl
@@ -199,5 +203,11 @@ Page({
   },
   formatMoney(money) {
     return money.toFixed(2)
+  },
+  // 监听微信支付成功后，如果当前websocket连的是分享人的团信息，重连获取自己团的信息
+  updateWebsocket() {
+    app.closeWebsocket()
+    app.wsUrl = websocketUrl + '/' + from + '/' + userInfo.id
+    app.buildWebsocket()
   }
 })

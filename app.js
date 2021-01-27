@@ -3,9 +3,9 @@ import { priceConfig } from './utils/api'
 App({
   // 应用第一次启动时候出发的事件
   onLaunch() {
-    this.getSysConfig()
   },
   onShow() {
+    this.getSysConfig()
   },
   onHide() {
   },
@@ -80,5 +80,16 @@ App({
     this.reconnectSocketTimeOut = setTimeout(() => {
       this.buildWebsocket()
     }, 5000)
+  },
+  // 主动关闭websocket
+  closeWebsocket() {
+    if (this.socketOpen) {
+      wx.closeSocket({
+        success: res => {
+          console.log('主动关闭websocket')
+          this.socketOpen = false
+        }
+      })
+    }
   }
 })

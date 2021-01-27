@@ -126,20 +126,17 @@ Page({
   // 根据用户等级设置特惠立购价格
   setProductPrice(vipLevel) {
     // 从缓存中获取产品价格配置
-    // TODO
     const priceConfig = wx.getStorageSync('priceConfig')
     let moneyType = ''
     if (vipLevel === 1) {
       moneyType = 'memberMoney'
     } else if (vipLevel === 2) {
-      moneyType = 'vipMoney'
-    } else if (vipLevel === 3) {
       moneyType = 'primaryPartnerTaskMoney'
-    } else if (vipLevel === 4) {
+    } else if (vipLevel === 3) {
       moneyType = 'middlePartnerTaskMoney'
-    } else if (vipLevel === 5) {
+    } else if (vipLevel === 4) {
       moneyType = 'seniorPartnerTaskMoney'
-    }
+    } // 如果vipLevel达到5级，说明是高级合伙人，不再需要购买
     let price = priceConfig[moneyType]
     this.setData({
       productData: {
