@@ -4,9 +4,9 @@
   height: 30rpx;
 }
 .tui-notice-board {
-  font-size: 30rpx;
-  height: 40rpx;
-  line-height: 40rpx;
+  font-size: 32rpx;
+  height: 60rpx;
+  line-height: 60rpx;
   width: 100%;
   padding-right: 30rpx;
   background: #fff8d5;

@@ -29,7 +29,6 @@ Page({
         const bankcardInfo = []
         res.data.rows.forEach(item => {
           item.bankCardNoStr = item.bankCardNo.substring(item.bankCardNo.length - 4)
-          console.log(item)
           bankcardInfo.push(item)
         })
         this.setData({

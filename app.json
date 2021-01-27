@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/vip/vip",
     "pages/partner/partner",
     "pages/group/group",
-    "pages/vip/vip",
     "pages/vip/productdetail/productdetail",
     "pages/mine/mine",
     "pages/mine/moneydetail/moneydetail",

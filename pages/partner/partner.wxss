@@ -39,6 +39,9 @@
   width: 30%;
   text-align: center;
 }
+.task-title {
+  font-weight: bold;
+}
 .level {
   display: flex;
 }
@@ -47,7 +50,24 @@
   justify-content: space-between;
 }
 .task-row {
-  flex: 1;
+  text-align: center;
 }
-/* .task-name {
-} */
+.title {
+  margin: 15rpx 0;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.walfare {
+  margin-left: 30rpx;
+  font-size: 28rpx;
+}
+.label {
+  font-weight: bold;
+}
+.walfare-info {
+  margin-bottom: 30rpx;
+}
+.walfare-detail {
+  margin-left: 20rpx;
+  color: #888888;
+}

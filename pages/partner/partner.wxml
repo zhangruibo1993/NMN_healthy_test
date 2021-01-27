@@ -16,13 +16,17 @@
     </view>
   </view>
   <view class="task" wx:if="{{!isShowProduct}}">
-    <view>升级到{{userInfo.nextVipLevelText || '下一等级'}}任务进度：</view>
+    <view class="task-title">升级到{{userInfo.nextVipLevelText || '下一等级'}}任务进度：</view>
+    <!-- <view class="task-list">
+      <text>名称</text>
+      <text>已完成/目标</text>
+      <text>状态</text>
+    </view> -->
     <view class="task-list" wx:for="{{userInfo.taskVOList}}" wx:key="id">
-      <view class="task-row">{{item.vipLevel}}</view>
-      <view class="task-row task-name">{{item.taskName}}</view>
-      <view class="task-row">{{item.count}}</view>
-      <view class="task-row">{{item.nowCount}}</view>
-      <view class="task-row">{{item.status}}</view>
+      <view class="task-row">{{item.taskCode}}</view>
+      <view class="task-row">{{item.taskName}}</view>
+      <view class="task-row">{{item.nowCount}}/{{item.count}}</view>
+      <view class="task-row" style="color: {{item.status === 1 ? 'green' : 'red'}}">{{item.status === 1 ? '已完成' : '未完成'}}</view>
     </view>
   </view>
   <!-- 产品信息 -->
@@ -33,4 +37,49 @@
       <button class="weui-btn submit-btn" type="primary" bindtap="handleSubmit">立即抢购</button>
     </view>
   </block>
+  <!-- 福利信息 -->
+  <view class="walfare-info">
+    <text class="title">福利介绍：</text>
+    <!-- vip信息 -->
+    <view class="walfare">
+      <text class="label">VIP福利：</text>
+      <view class="walfare-detail">
+        <view><text>1.</text><text>1瓶NMN，2次细胞检测(总价值4380元)</text></view>
+        <view><text>2.</text><text>直推每瓶收益400元</text></view>
+        <view><text>3.</text><text>第2瓶起，复购每瓶1480元</text></view>
+        <view><text>4.</text><text>直推复购，每瓶返利100元</text></view>
+        <view><text>5.</text><text>团队业绩奖励2%</text></view>
+      </view>
+    </view>
+    <view class="walfare">
+      <text class="label">初级合伙人：</text>
+      <view class="walfare-detail">
+        <view><text>1.</text><text>3瓶NMN，6次细胞检测(总价值13140元)</text></view>
+        <view><text>2.</text><text>直推每瓶收益500元，共计5000元</text></view>
+        <view><text>3.</text><text>第4瓶起，复购每瓶1280元</text></view>
+        <view><text>4.</text><text>直推复购，每瓶返利100元</text></view>
+        <view><text>5.</text><text>团队业绩奖励4%</text></view>
+      </view>
+    </view>
+    <view class="walfare">
+      <text class="label">中级合伙人：</text>
+      <view class="walfare-detail">
+        <view><text>1.</text><text>6瓶NMN，12次细胞检测(总价值26280元)</text></view>
+        <view><text>2.</text><text>直推每瓶收益600元，共计12000元</text></view>
+        <view><text>3.</text><text>第7瓶起，复购每瓶1080元</text></view>
+        <view><text>4.</text><text>直推复购，每瓶返利150元</text></view>
+        <view><text>5.</text><text>团队业绩奖励6%</text></view>
+      </view>
+    </view>
+    <view class="walfare">
+      <text class="label">高级合伙人：</text>
+      <view class="walfare-detail">
+        <view><text>1.</text><text>12瓶NMN，24次细胞检测(总价值52560元)</text></view>
+        <view><text>2.</text><text>直推每瓶收益700元，共计21000元</text></view>
+        <view><text>3.</text><text>第13瓶起，复购每瓶880元</text></view>
+        <view><text>4.</text><text>直推复购，每瓶返利200元</text></view>
+        <view><text>5.</text><text>团队业绩奖励8%</text></view>
+      </view>
+    </view>
+  </view>
 </view>
