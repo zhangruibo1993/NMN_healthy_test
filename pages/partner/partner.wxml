@@ -2,17 +2,21 @@
 <!-- 走马灯 -->
 <notice text="{{partnerNoticeText}}"></notice>
 
-<view class="main">
+<view>
   <!-- 登录按钮 -->
   <login isShow="{{isShowLogin}}" bindUpdateUserInfo="getUserInfo"></login>
   <!-- 用户信息 -->
   <view class="user-info" wx:if="{{!isShowProduct}}">
-    <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
-    <view>{{userInfo.name}}</view>
-    <view>{{userInfo.vipLevelText}}</view>
+    <view class="info-detail">
+      <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <view>
+        <view>{{userInfo.name}}</view>
+        <view class="viplevel">{{userInfo.vipLevelText}}</view>
+      </view>
+    </view>
     <view>
-      <view>累计直推收益：<text>{{userInfo.referenceTotalMoneyText}}</text></view>
-      <view>累计团队收益：<text>{{userInfo.teamTotalMoneyText}}</text></view>
+      <view>累计直推收益：<text class="reward">{{userInfo.referenceTotalMoneyText}}</text></view>
+      <view>累计团队收益：<text class="reward">{{userInfo.teamTotalMoneyText}}</text></view>
     </view>
   </view>
   <view class="task" wx:if="{{!isShowProduct}}">

@@ -10,6 +10,7 @@
   border-radius: 20rpx;
   margin-top: 100rpx;
   background-color: #fff;
+  color: #07C160;
 }
 .login {
   display: flex;

@@ -1,7 +1,7 @@
 <!--pages/mine/draw/draw.wxml-->
 <view class="content" wx:if="{{cardList.length > 0}}">
-  <!-- 到账银行卡 -->
-  <picker mode="selector" range="{{cardList}}" range-key="showStr" value="{{currentCard}}" bindchange="handleChangeCard">
+  <!-- 到账银行卡，暂不显示 -->
+  <!-- <picker mode="selector" range="{{cardList}}" range-key="showStr" value="{{currentCard}}" bindchange="handleChangeCard">
     <view class="card-info">
       <view class="card-content">
         <text class="card-label">到账银行卡</text>
@@ -12,7 +12,7 @@
       </view>
       <mp-icon icon="arrow" color="#B7B7B7" size="{{16}}"></mp-icon>
     </view>
-  </picker>
+  </picker> -->
 
   <!-- 提现金额 -->
   <view class="draw-info">

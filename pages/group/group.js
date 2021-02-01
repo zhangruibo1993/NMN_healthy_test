@@ -36,8 +36,7 @@ Page({
       this.setData({
         isShowLogin: false
       })
-    } else {
-      this.getMemberGroup()
+    } else { // 已登录，获取用户信息和组团信息
       this.getUserInfo()
     }
   },
@@ -50,7 +49,6 @@ Page({
   onReachBottom: function () {
   },
   onShareAppMessage: function () {
-    console.log('111', this.data.myGroupId)
     return {
       title: '拼团',
       path: '/pages/group/group?myGroupId=' + this.data.myGroupId // 自己的groupId
@@ -142,6 +140,7 @@ Page({
           isShowUserInfo: true
         })
         wx.setStorageSync('userInfo', res.data)
+        this.getMemberGroup()
       })
       .catch(err => {
         console.log(err)
@@ -168,7 +167,6 @@ Page({
     }
     memberGroup(params)
       .then(res => {
-        console.log('拼团信息', res)
         // 1 如果获取到了拼团信息，则isShowGroupInfo设为true，否则设为false，isShowOrderBtn设为false
         // 2 设置groupInfo
         if (res.data) {
@@ -181,7 +179,8 @@ Page({
           res.data.leagueFourMoneyText = res.data.leagueFour ? this.formatMoney(res.data.leagueFourMoney) : '0.00'
           this.setData({
             groupInfo: res.data,
-            isShowGroupInfo: true
+            isShowGroupInfo: true,
+            isShowOrderBtn: false
           })
         } else {
           this.setData({

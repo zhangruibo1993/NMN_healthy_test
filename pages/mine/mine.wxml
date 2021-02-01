@@ -1,5 +1,5 @@
 <!--pages/mine/mine.wxml-->
-<view>
+<view class="login-content">
   <block wx:if="{{userInfo}}">
     <!-- 用户信息 -->
     <view class="user">
@@ -61,13 +61,14 @@
 
     <!-- 常用工具 -->
     <view class="tools">
-      <view class="row" bindtap="handleBankCard">
+    <!-- 暂不支持提现到银行卡，银行卡管理功能隐藏 -->
+      <!-- <view class="row" bindtap="handleBankCard">
         <view class="tool-label">
           <image class="icon-tools" src="../../icons/bankcard.png"></image>
           <text>银行卡</text>
         </view>
         <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
-      </view>
+      </view> -->
       <view class="row" bindtap="handleChooseAddress">
         <view class="tool-label">
           <image class="icon-tools" src="../../icons/address.png"></image>
@@ -88,9 +89,9 @@
   <!-- 登录/注册 -->
   <button size="default" class="login-btn" hover-class="none" open-type="getUserInfo" bindgetuserinfo="handleLogin" wx:else>
     <view class="login">
-      <image class="user-avatar" src="../../icons/mine.png"></image>
+      <image class="user-avatar" src="../../icons/mine1.png"></image>
       <text>登录 / 注册</text>
     </view>
-    <mp-icon class="arrow" icon="arrow" color="black" size="18"></mp-icon>
+    <mp-icon class="arrow" icon="arrow" color="#07C160" size="18"></mp-icon>
   </button>
 </view>

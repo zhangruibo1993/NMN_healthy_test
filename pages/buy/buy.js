@@ -115,7 +115,6 @@ Page({
         title: '请选择收货地址',
       })
     } else { // 已选择地址则开始支付逻辑
-      console.log('开始支付了')
       this.setData({
         isDisabled: true
       })
@@ -173,7 +172,6 @@ Page({
   },
   // 调起微信支付
   wxPay(data) {
-    console.log('开始微信支付')
     wx.requestPayment({
       nonceStr: data.nonceStr,
       paySign: data.paySign,
@@ -181,7 +179,6 @@ Page({
       signType: 'MD5',
       package: data.package_id,
       success: res => {
-        console.log('微信支付完成回调', res)
         this.handleSuccess()
       },
       fail: err => {

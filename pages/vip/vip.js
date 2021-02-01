@@ -28,7 +28,11 @@ Page({
     const session_token = wx.getStorageSync('session_token')
     if (!session_token) { // 如果session_token为空，说明未登录过，则
       this.setData({
-        isShowLogin: false
+        isShowLogin: false,
+        productData: {
+          price: 2000,
+          count: 1
+        }
       })
     } else {
       this.getUserInfo()

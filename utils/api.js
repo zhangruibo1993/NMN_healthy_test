@@ -18,7 +18,7 @@ export function valiCode(params) {
 }
 // 获取拼团信息
 export function memberGroup(params){
-  return  http('/group/member', 'get', params) 
+  return  http('/group/member', 'get', params, true) 
 }
 // 获取订单各状态数量
 export function orderCount(params) {
@@ -55,4 +55,8 @@ export function addBankcard(params) {
 // 奖励金明细列表
 export function rewardList(params) {
   return http('/reward/list', 'GET', params)
+}
+// 奖励金明细列表
+export function rewardDrawal(params) {
+  return http('/reward/drawal', 'POST', params)
 }

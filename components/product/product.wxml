@@ -15,7 +15,7 @@
   <view class="row">
     <view>商品数量</view>
     <view class="edit" wx:if="{{isEdit}}">
-      <text class="editbtn minus-btn" bindtap="handleMinus">-</text>
+      <text class="editbtn minus-btn" bindtap="handleMinus">—</text>
       <input class="weui-input count-input" type="number" value="{{productData.count}}" bindconfirm="handleCountChange" />
       <text class="editbtn plus-btn" bindtap="handlePlus">+</text>
     </view>

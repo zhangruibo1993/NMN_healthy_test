@@ -62,7 +62,6 @@ Page({
   // 表单验证及提交
   handleSubmit() {
     this.selectComponent('#form').validate((valid, errors) => {
-      console.log('valid', valid, errors)
       if (!valid) {
         const firstError = Object.keys(errors)
         if (firstError.length) {
@@ -128,16 +127,13 @@ Page({
   },
   // 发送验证码给用户填写的手机号
   handleSendValiCode() {
-    console.log(this.data.valiCodeText)
     if (this.data.valiCodeText === '发送验证码') {
       this.sendValiCode()
     }
   },
   sendValiCode() {
     this.selectComponent('#form').validate((valid, errors) => {
-      console.log('valid', valid, errors)
       if (!valid) { // 如果有错误项
-        console.log(valid)
         let flag = true
         for (let i = 0; i < errors.length; i++) {
           if (errors[i].name === 'phone') { // 遍历错误项，判断是否有手机号相关错误（未填或格式错误）
@@ -148,14 +144,12 @@ Page({
             break
           }
         }
-        console.log(flag)
         if (flag) {
           this.timerun()
           valiCode({
             phone: this.data.formData.phone,
             type: 'reg'
           }).then(res => {
-            console.log(res)
           }).catch(err => {
             console.log(err)
           })

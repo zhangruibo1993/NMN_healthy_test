@@ -1,5 +1,5 @@
 // pages/mine/draw/draw.js
-import { bankcardList } from '../../../utils/api'
+import { bankcardList, rewardDrawal, userInfo } from '../../../utils/api'
 Page({
   data: {
     cardList: [],
@@ -9,11 +9,11 @@ Page({
     isDisable: true, // 提交按钮是否可以点击
   },
   onLoad: function (options) {
-    this.getUserInfoFromStorage()
   },
   onReady: function () {
   },
   onShow: function () {
+    this.getUserInfoFromStorage()
     this.getBankcardList()
   },
   onHide: function () {
@@ -69,11 +69,16 @@ Page({
   },
   // 监听输入金额
   handleInput(e) {
-    console.log(e)
+    let rawValue
+    if (/^(\d?)+(\.\d{0,2})?$/.test(e.detail.value)) { //正则验证，提现金额小数点后不能大于两位数字
+      rawValue = e.detail.value;
+    } else {
+      rawValue = e.detail.value.substring(0, e.detail.value.length - 1);
+    }
     this.setData({
-      drawMoney: e.detail.value
+      drawMoney: rawValue
     })
-    if (this.data.drawMoney * 1 > 0) {
+    if (this.data.drawMoney * 1 > 0 && this.data.drawMoney <= this.data.rewardMoney) {
       this.setData({
         isDisable: false
       })
@@ -85,6 +90,38 @@ Page({
   },
   // 点击提现
   handleSubmit() {
-    console.log('开始提现了')
-  }
+    rewardDrawal({
+      money: this.data.drawMoney
+    }).then(res => {
+      this.setData({
+        drawMoney: null,
+        isDisable: true
+      })
+      this.getUserInfo()
+      wx.showToast({
+        icon: 'success',
+        title: '提现申请成功',
+        success: () => {
+          wx.redirectTo({
+            url: '/pages/mine/moneydetail/moneydetail',
+          })
+        }
+      })
+    }).catch(err => {
+      console.log(err)
+      this.setData({
+        drawMoney: null,
+        isDisable: true
+      })
+    })
+  },
+  getUserInfo() {
+    // 从后台获取用户信息，更新缓存中的userInfo
+    userInfo()
+      .then(res => {
+        wx.setStorageSync('userInfo',  res.data)
+      }).catch(err => {
+        console.log(err)
+      })
+  },
 })

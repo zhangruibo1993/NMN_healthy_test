@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/vip/vip",
+    "pages/mine/mine",
     "pages/partner/partner",
     "pages/group/group",
-    "pages/vip/productdetail/productdetail",
-    "pages/mine/mine",
-    "pages/mine/moneydetail/moneydetail",
-    "pages/order/order",
     "pages/mine/draw/draw",
+    "pages/mine/moneydetail/moneydetail",
+    "pages/vip/productdetail/productdetail",
+    "pages/order/order",
     "pages/mine/rewardmoney/rewardmoney",
     "pages/mine/userdetail/userdetail",
     "pages/bankcard/bankcard",
@@ -21,7 +21,6 @@
     "navigationBarBackgroundColor": "#07C160",
     "navigationBarTitleText": "团购乐创俱乐部",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true,
     "backgroundColor": "#07C160"
   },
   "tabBar": {

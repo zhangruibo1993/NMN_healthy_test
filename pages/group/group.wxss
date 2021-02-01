@@ -2,28 +2,54 @@
 .user-info {
   display: flex;
   justify-content: space-between;
-  margin: 20rpx 0;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 5rpx dotted #07C160;
+  background-color: #fff;
+}
+.info-detail {
+  display: flex;
 }
 .user-avatar {
-  width: 60rpx;
-  height: 60rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 60rpx;
+  margin-right: 20rpx;
+}
+.viplevel {
+  color: #7C7C7C;
+  font-size: 28rpx;
+}
+.reward {
+  font-weight: bold;
 }
 .title {
-  margin: 10rpx 0;
-  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 40rpx;
   font-weight: bold;
-  height: 36rpx;
+}
+.group-info {
+  padding: 0 20rpx;
+  background-color: #fff;
+}
+.user {
+  color: #DF311E;
 }
 .groupno {
-  float: right;
-  font-size: 28rpx;
+  font-size: 30rpx;
+  color: #7C7C7C;
+  font-weight: normal;
 }
 .row {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80rpx;
+  height: 100rpx;
+  border-top: 1rpx solid #E5E5E5;
 }
 .item {
   flex: 1;
@@ -31,16 +57,29 @@
 .position {
   text-align: center;
 }
+.position text {
+  color: #ffffff;
+  font-size: 32rpx;
+  background-color: #07C160;
+  padding: 5rpx 20rpx;
+  border-radius: 50rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+}
 .nick-info {
   display: flex;
+  align-items: center;
+  font-size: 32rpx;
 }
 .head-image {
-  width: 50rpx;
-  height: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
   border-radius: 50rpx;
   margin-right: 20rpx;
 }
 .bonus-number {
+  font-weight: bold;
+  font-size: 36rpx;
   color: #E5B247;
   text-align: right;
 }
@@ -59,4 +98,20 @@
 }
 .reward {
   margin-bottom: 30rpx;
+}
+.wait {
+  font-size: 32rpx;
+  color: #888888;
+}
+.rule-info {
+  padding: 0 20rpx;
+}
+.reward-info {
+  padding-bottom: 30rpx;
+}
+.nodatatips {
+  text-align: center;
+  color: #888888;
+  padding: 100rpx 0;
+  background-color: #fff;
 }

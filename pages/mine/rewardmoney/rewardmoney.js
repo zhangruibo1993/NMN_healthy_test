@@ -5,11 +5,11 @@ Page({
     money: 0
   },
   onLoad: function (options) {
-    this.getUserInfoFromStorage()
   },
   onReady: function () {
   },
   onShow: function () {
+    this.getUserInfoFromStorage()
   },
   onHide: function () {
   },

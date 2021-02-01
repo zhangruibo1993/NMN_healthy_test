@@ -12,7 +12,7 @@
         <text class="reward-from">{{item.rewardFromName}}</text>
       </view>
       <view class="item item-total">
-        <text class="date">{{item.date}}</text>
+        <text class="date">{{item.createTime}}</text>
         <text class="total">余额 {{item.totalText}}</text>
       </view>
     </scroll-view>

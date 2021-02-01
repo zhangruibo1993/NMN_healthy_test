@@ -10,7 +10,7 @@ page, view, text, textarea, image {
 }
 .nodata {
   text-align: center;
-  color: #999999;
+  color: #888888;
   margin-top: 100rpx;
 }
 .submit {

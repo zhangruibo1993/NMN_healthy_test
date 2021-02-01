@@ -2,7 +2,7 @@
 <!-- 走马灯 -->
 <notice text="{{vipNoticeText}}"></notice>
 
-<view class="main">
+<view>
   <!-- 登录按钮 -->
   <login isShow="{{isShowLogin}}" bindUpdateUserInfo="getUserInfo"></login>
 

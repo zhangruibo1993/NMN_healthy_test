@@ -24,7 +24,11 @@ Page({
     const session_token = wx.getStorageSync('session_token')
     if (!session_token) {
       this.setData({
-        isShowLogin: false
+        isShowLogin: false,
+        productData: {
+          price: 2000,
+          count: 1
+        }
       })
     } else {
       this.getUserInfo()

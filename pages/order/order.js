@@ -26,10 +26,8 @@ Page({
   onUnload: function () {
   },
   onPullDownRefresh: function () {
-    console.log(11)
   },
   onReachBottom: function () {
-    console.log('bottom')
   },
   onShareAppMessage: function () {
   },

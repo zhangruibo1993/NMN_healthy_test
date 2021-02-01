@@ -1,1 +1,5 @@
 /* components/login/login.wxss */
+.login {
+  background-color: #fff;
+  padding: 50rpx 0 20rpx 0;
+}
