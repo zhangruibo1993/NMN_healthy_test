@@ -1,0 +1,88 @@
+<!--pages/clock/clock.wxml-->
+<!-- 打卡日历页面 -->
+<view class='all'>
+ <view class="bar">
+ <!-- 上一个月 -->
+ <view class="previous" bindtap="handleCalendar" data-handle="prev">
+  <image src='../../icons/left-arrow.png'></image>
+ </view>
+ <!-- 显示年月 -->
+ <view class="date">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+ <!-- 下一个月 -->
+ <view class="next" bindtap="handleCalendar" data-handle="next">
+  <image src='../../icons/right-arrow.png'></image>
+ </view>
+ </view>
+ <!-- 显示星期 -->
+ <view class="week">
+    <view wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+ </view>
+ <view class='days'>
+ <!-- 列 -->
+ <view class="columns" wx:for="{{days.length/7}}" wx:for-index="i" wx:key="i">
+  <view wx:for="{{days}}" wx:for-index="j" wx:key="j">
+  <!-- 行 -->
+  <view class="rows" wx:if="{{j/7 == i}}">
+   <view class="rows" wx:for="{{7}}" wx:for-index="k" wx:key="k">
+   <!-- 每个月份的空的单元格 -->
+   <view class='cell' wx:if="{{days[j+k].date == null}}">
+    <text decode="{{true}}">&nbsp;&nbsp;</text>
+   </view>
+   <!-- 每个月份的有数字的单元格 -->
+   <view class='cell' wx:else>
+    <!-- 当前日期已签到 -->
+    <view wx:if="{{days[j+k].isSign == true}}" style='background-color:#83C75D' data-obj="{{days[j+k]}}" class='cell' bindtap="showData">
+      <text>{{days[j+k].date}}</text>
+    </view>
+    <!-- 当前日期未签到 -->
+    <view wx:else>
+    <text>{{days[j+k].date}}</text>
+    </view>
+   </view>
+   </view>
+  </view>
+  </view>
+ </view>
+ </view>
+ <!-- 坚持打卡天数 -->
+ <view class='count'>
+ <text>强身健体，坚持每日打卡</text>
+   <view class="task-row" style="color: {{cur_isSignUp === 1 ? 'green' : 'red'}}">{{cur_isSignUp === 1 ? '已签到' : '未签到'}}</view>
+
+   <!-- 日历下的表单提交 -->
+   <mp-form id="form"  models="{{formData}}">
+    <radio-group class="radio-group clock-title">
+         <text>1.是否服用NMN?</text>
+         <label wx:for="{{choose_items}}">
+            <radio style="padding-left:10px" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+         </label>
+   </radio-group>
+   <radio-group class="radio-group clock-title"  bindchange="radio_drugsChange" >
+         <text>2.是否服用其他药物?</text>
+         <label wx:for="{{choose_items}}">
+            <radio style="padding-left:10px" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+         </label>
+     </radio-group>
+    
+   <view style="display:{{otherDrugs_display}}" >
+         <label class="label">其他药物:</label>
+         <input data-field="otherDrugs"  class="drugsChange_text"/>
+   </view>
+
+   <radio-group class="radio-group" bindchange="radio_detailChange">
+         <text>3.服用药物后,身体是否感觉到不适?</text>
+         <label wx:for="{{choose_items}}">
+            <radio style="padding-left:10px" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+         </label>
+     </radio-group>
+     <view style="display:{{detail_display}};" bindtap="handleHealthyDetail">
+      <text class="detail">填写不适详情</text>
+      <mp-icon class="arrow" icon="arrow" color="#888888" size="10"></mp-icon>
+     </view>
+   </mp-form>
+   <button class="submit-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="handleSubmit">提交</button>
+  
+ <!-- </view>  -->
+ <!-- <text>请再接再厉，继续努力</text> -->
+ </view>
+</view>

@@ -47,7 +47,7 @@ Page({
     }
   },
   // 点击登录按钮，获取用户信息
-  handleLogin(e) {
+  handleLogin(e) {debugger
     if (!e.detail.userInfo) { // 如果open-type中没有userInfo，说明是用户拒绝授权，给出提示
       wx.showToast({
         icon: 'none',
@@ -177,10 +177,21 @@ Page({
     })
   },
   // 点击细胞检测结果
-  handleCheck() {
-    wx.showToast({
-      icon: 'none',
-      title: '功能开发中，敬请期待~',
+  basicInfo() {
+    wx.navigateTo({
+      url: '/pages/basicInfo/basicInfo',
+    })
+  },
+  // 打卡页面
+  clock() {
+    wx.navigateTo({
+      url: '/pages/clock/clock',
+    })
+  },
+  // 初始健康状况
+  original_healthy() {
+    wx.navigateTo({
+      url: '/pages/healthy/healthy',
     })
   }
 })

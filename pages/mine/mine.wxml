@@ -76,12 +76,26 @@
         </view>
         <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
       </view>
-      <view class="row" bindtap="handleCheck">
+      <view class="row" bindtap="basicInfo">
         <view class="tool-label">
           <image class="icon-tools" src="../../icons/check.png"></image>
-          <text>细胞检测结果</text>
+          <text>个人基本信息</text>
         </view>
         <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
+      </view>
+      <view class="row" bindtap="clock">
+        <view class="tool-label">
+          <image class="icon-tools" src="../../icons/clock.png"></image>
+          <text>打卡</text>
+        </view>
+        <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
+      </view>
+      <view class="row" bindtap="original_healthy">
+        <view class="tool-label">
+          <image class="icon-tools" src="../../icons/healthy.png"></image>
+          <text>初始化身体状况</text>
+        </view>
+        <mp-icon class="arrow" icon="healthy" color="#CCCCCC" size="12"></mp-icon>
       </view>
     </view>
   </block>

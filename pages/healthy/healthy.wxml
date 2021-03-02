@@ -1,0 +1,19 @@
+<!--pages/basicInfo/basicInfo.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="title" style="">用户健康信息</view>
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+  <mp-cells wx:for="{{items}}">
+    <mp-cell prop="{{item.prop}}" title="{{item.title}}" class="form_item"></mp-cell>
+    <radio-group class="radio-group">
+      <label class="radio" wx:for="{{choose_items}}">
+         <radio style="padding-left:15px" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+      </label>
+   </radio-group>
+  </mp-cells>
+  <mp-cells>
+      <mp-cell prop="remark" title="其他补充:" style="width:400px"></mp-cell>
+      <input bindinput="formInputChange" data-field="remark" class="weui-input" />
+   </mp-cells>
+  
+</mp-form>
+<button class="weui-btn submit-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="handleSubmit">提交</button>

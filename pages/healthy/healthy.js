@@ -1,4 +1,4 @@
-// pages/regist/regist.js
+// pages/basicInfo/basicInfo.js
 const app = getApp()
 import { valiCode } from '../../utils/api'
 import { regist } from '../../utils/api'
@@ -11,37 +11,36 @@ Page({
     formData: {
       valiType: 'reg'
     },
-    rules: [
-      {
-        name: 'trueName',
-        rules: {required: true, message: '请填写用户名'},
-      },
-      {
-        name: 'phone',
-        rules: [
-          {required: true, message: '请填写手机号'},
-          // {mobile: true, message: '手机号格式不对'},
-        ]
-      },
-      {
-        name: 'valicode',
-        rules: [
-          {required: true, message: '请填写验证码'},
-          {minlength: 4, message: '请填写4位验证码'},
-          {maxlength: 4, message: '请填写4位验证码'},
-        ]
-      },
-      {
-        name: 'idCardNo',
-        rules: [
-          {required: true, message: '请填写身份证号'},
-          {minlength: 18, message: '请填写18位身份证号'},
-          {maxlength: 18, message: '请填写18位身份证号'},
-        ]
-      }
-    ]
+    items : [
+      {prop:'isSmoke',title:'1.是否抽烟'},
+      {prop:'isDrink',title:'2.是否喝酒'},
+      {prop:'isFearCold',title:'3.是否畏寒'},
+      {prop:'isFearHeat',title:'4.是否怕热'},
+      {prop:'isMemoryLoss',title:'5.是否记忆力下降'},
+      {prop:'isHairLoss',title:'6.是否有脱发情况'},
+      {prop:'isCough',title:'7.是否咳嗽、咳痰'},
+      {prop:'isChest',title:'8.是否胸闷、呼吸困难'},
+      {prop:'isDizzy',title:'9.是否头晕、头疼'},
+      {prop:'isAbdominal',title:'10.是否腹胀、腹痛、腹泄'},
+      {prop:'isConstipation',title:'11.是否便秘、便血'},
+      {prop:'isVomit',title:'12.是否呕吐反胃'},
+      {prop:'isCancer',title:'13.是否有癌症'},
+      {prop:'isLeukemia',title:'14.是否有白血病'},
+      {prop:'isRheumatism',title:'15.是否有风湿类疾病'},
+      {prop:'isSkinDisease',title:'16.是否有皮肤类疾病'},
+      {prop:'isHeartDisease',title:'17.是否有心脏类疾病'},
+      {prop:'isHypertension',title:'18.是否有高血压'},
+      {prop:'isUricAcid',title:'19.是否尿酸指数超高'}
+     ],
+     choose_items : [
+      {name:'1',value:'是'},
+      {name:'0',value:'否',checked:true}
+     ]
   },
+
+  //页面加载
   onLoad: function (options) {
+    
   },
   onReady: function () {
   },
@@ -56,6 +55,66 @@ Page({
   onReachBottom: function () {
   },
   onShareAppMessage: function () {
+  },
+    // 选择职业
+  pickProfessional: function (e) {
+    this.setData({
+      multiIndex: e.detail.value
+    })
+  },
+  pickProfessionalChange: function (e) {
+    var data = {
+      multiArray: this.data.multiArray,
+      multiIndex: this.data.multiIndex
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+    switch (e.detail.column) {
+      case 0:
+        switch (data.multiIndex[0]) {
+          case 0:
+            data.multiArray[1] = ['代驾'];
+            break;
+          case 1:
+            data.multiArray[1] = ['家政', '摄影', '婚庆服务', '废物回收'];
+            break;
+          case 2:
+            data.multiArray[1] = ['厨师', '服务员', '老板'];
+            break;
+          case 3:
+            data.multiArray[1] = ['导游'];
+            break;
+          case 4:
+            data.multiArray[1] = ['律师', '设计师','健康营养师'];
+            break;
+          case 5:
+            data.multiArray[1] = ['邮政', '装卸搬运', '快递/物流'];
+            break;
+          case 6:
+            data.multiArray[1] = ['在线教育', '特殊人群教育', '教育装备', '教育信息服务'];
+            break;
+          case 7:
+            data.multiArray[1] = ['体育培训'];
+            break;
+          case 8:
+            data.multiArray[1] = ['IT工程师'];
+            break;
+          case 9:
+            data.multiArray[1] = ['职能人员'];
+            break;
+        }
+        data.multiIndex[1] = 0;
+        break;
+     
+        
+    }
+    console.log(data.multiIndex);
+    this.setData(data);
+  },
+  // 选择性别
+  pickGender: function(e) {
+    this.setData({
+      index: e.detail.value
+    })
   },
   // 表单验证及提交
   handleSubmit() {
