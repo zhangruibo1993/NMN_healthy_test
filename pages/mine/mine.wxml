@@ -92,8 +92,8 @@
       </view>
       <view class="row" bindtap="original_healthy">
         <view class="tool-label">
-          <image class="icon-tools" src="../../icons/healthy.png"></image>
-          <text>初始化身体状况</text>
+          <image class="icon-tools" src="../../icons/healthy1.png"></image>
+          <text>身体状况信息</text>
         </view>
         <mp-icon class="arrow" icon="healthy" color="#CCCCCC" size="12"></mp-icon>
       </view>

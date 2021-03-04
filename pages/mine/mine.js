@@ -191,7 +191,7 @@ Page({
   // 初始健康状况
   original_healthy() {
     wx.navigateTo({
-      url: '/pages/healthy/healthy',
+      url: '/pages/initHealthy/initHealthy',
     })
   }
 })

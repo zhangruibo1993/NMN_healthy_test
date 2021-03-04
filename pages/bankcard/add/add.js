@@ -62,7 +62,7 @@ Page({
           })
         }
       } else {
-        addBankcard(this.data.formData)
+        addBankcardi(ths.data.formData)
           .then(res => {
             wx.showToast({
               icon: 'success',

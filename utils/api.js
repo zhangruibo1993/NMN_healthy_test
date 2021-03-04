@@ -60,3 +60,11 @@ export function rewardList(params) {
 export function rewardDrawal(params) {
   return http('/reward/drawal', 'POST', params)
 }
+
+
+
+//  健康登记
+// 获取打卡登记数据
+export function getClockData(params){
+  return  http('/xcx/login', 'GET',params) 
+}

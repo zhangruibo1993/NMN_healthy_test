@@ -31,13 +31,14 @@
    <!-- 每个月份的有数字的单元格 -->
    <view class='cell' wx:else>
     <!-- 当前日期已签到 -->
-    <view wx:if="{{days[j+k].isSign == true}}" style='background-color:#83C75D' data-obj="{{days[j+k]}}" class='cell' bindtap="showData">
-      <text>{{days[j+k].date}}</text>
+    <view bindtap="showData" data-obj="{{days[j+k]}}" class="{{days[j+k].isSign == 1?'':'noactive'}}" 
+         data-tagId="{{days[j+k].date}}" >
+      <text class="{{cur_day == days[j+k].date?'cellText':''}}">{{days[j+k].date}}</text>
     </view>
     <!-- 当前日期未签到 -->
-    <view wx:else>
-    <text>{{days[j+k].date}}</text>
-    </view>
+    <!-- <view wx:else  bindtap="showData" data-obj="{{days[j+k]}}">
+    <text>{{days[j+k].date}}</text> -->
+    <!-- </view> -->
    </view>
    </view>
   </view>
@@ -47,10 +48,23 @@
  <!-- 坚持打卡天数 -->
  <view class='count'>
  <text>强身健体，坚持每日打卡</text>
-   <view class="task-row" style="color: {{cur_isSignUp === 1 ? 'green' : 'red'}}">{{cur_isSignUp === 1 ? '已签到' : '未签到'}}</view>
+   <text class="task-row" style="color: {{cur_isSignUp == 1 ? 'green' : 'red'}}">{{cur_isSignUp == 1 ? '已签到' : '未签到'}}
+   </text>
+   <image style="display:{{cur_isSignUp == 1 ? 'none':'inline-block'}};"  class="icon-clock" bindtap="handleHealthyDetail"
+         src="../../icons/clock1.png"></image>
+
+   <view style="display:{{cur_isSignUp == 1 ? 'inline-block' : 'none'}};" bindtap="handleHealthyDetail">
+      <text class="detail">签到详情</text>
+      <mp-icon class="arrow" icon="arrow" color="#888888" size="10"></mp-icon>
+   </view>
+
+
+
+
+
 
    <!-- 日历下的表单提交 -->
-   <mp-form id="form"  models="{{formData}}">
+   <!-- <mp-form id="form"  models="{{formData}}">
     <radio-group class="radio-group clock-title">
          <text>1.是否服用NMN?</text>
          <label wx:for="{{choose_items}}">
@@ -80,7 +94,7 @@
       <mp-icon class="arrow" icon="arrow" color="#888888" size="10"></mp-icon>
      </view>
    </mp-form>
-   <button class="submit-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="handleSubmit">提交</button>
+   <button class="submit-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="handleSubmit">提交</button> -->
   
  <!-- </view>  -->
  <!-- <text>请再接再厉，继续努力</text> -->

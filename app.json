@@ -20,7 +20,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#07C160",
-    "navigationBarTitleText": "健康登记",
+    "navigationBarTitleText": "健康打卡",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#07C160"
   },

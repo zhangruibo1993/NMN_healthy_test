@@ -1,0 +1,15 @@
+/* pages/basicInfo/basicInfo.wxss */
+.title {
+  font-size: 36rpx;
+  text-align: center;
+  margin: 20rpx auto;
+}
+
+.title .form_item{
+ width: 400px;
+ }
+
+
+.submit-btn {
+  margin-top: 30rpx;
+}

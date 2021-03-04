@@ -1,5 +1,8 @@
 // pages/clock/clock.js
 //打卡日历页面
+
+// import { getClockData } from '../../../utils/api'
+
 const app = getApp()
 
 Page({
@@ -15,12 +18,13 @@ Page({
       signUp:[],
       cur_year:0,
       cur_month:0,
+      cur_day:0,
       choose_items : [
         {name:'1',value:'是'},
         {name:'0',value:'否',checked:true}
        ],
       cur_isSignUp:'',
-      cur_isHealthy:''
+      cur_select_color:'rgb(236, 104, 104)'
     },
 
     /**
@@ -30,8 +34,10 @@ Page({
       this.setData({objectId : options.objectId}); 
       //获取当前年月 
       const date = new Date();
-      const cur_year = date.getFullYear();
+      
+      const cur_year = date.getFullYear(); 
       const cur_month = date.getMonth() + 1;
+      const cur_day = date.getDay();
       const weeks_ch = ['日', '一', '二', '三', '四', '五', '六'];
       this.calculateEmptyGrids(cur_year, cur_month);
       this.calculateDays(cur_year, cur_month);
@@ -40,6 +46,7 @@ Page({
       this.setData({
         cur_year,
         cur_month,
+        cur_day,
         weeks_ch
       })
 
@@ -91,13 +98,16 @@ Page({
  * 页面上拉触底事件的处理函数
  */
 showData: function (e) {
-  let isSign = '1';
-  if(e.currentTarget.dataset.obj.isSign){
-     isSign = '0';
+  console.log("今天星期:" + e.currentTarget.dataset.obj.date,this.data.cur_year,this.data.cur_month);
+  let isSign = '0';
+  if(e.currentTarget.dataset.obj.isSign == 1){
+     isSign = '1';
   }
 
   this.setData({
-    cur_isSignUp: isSign
+    cur_isSignUp: isSign,
+    cur_select_color:'white',
+    cur_day:e.currentTarget.dataset.obj.date
   });
 },
 radio_drugsChange: function (e) {
@@ -115,7 +125,7 @@ radio_drugsChange: function (e) {
 radio_detailChange: function (e) {
   if(e.detail.value == 1){
     this.setData({
-      detail_display:'finline-block'
+      detail_display:'inline-block'
      })
   }else{
     this.setData({
@@ -124,9 +134,14 @@ radio_detailChange: function (e) {
   }
 
 },
-handleHealthyDetail: function () {
+handleHealthyDetail: function (e) {
+  if(this.data.cur_day == undefined){
+    console("请先选定日期")
+  } 
+  const nowDate =  this.data.cur_year + "年" + this.data.cur_month + "月" + this.data.cur_day + "日";
+
   wx.navigateTo({
-    url: '/pages/healthy/healthy',
+    url: "/pages/healthy/healthy?nowDate="+nowDate
   })
 },
 
@@ -156,19 +171,19 @@ handleHealthyDetail: function () {
     const firstDayOfWeek = this.getFirstDayOfWeek(year, month); 
     if (firstDayOfWeek > 0) {
       for (let i = 0; i < firstDayOfWeek; i++) {
-      var obj = {
-      date:null,
-      isSign:false
-      }
-      that.data.days.push(obj);
+        var obj = {
+          date:null,
+          isSign:false
+        }
+        that.data.days.push(obj);
       }
       this.setData({
-      days:that.data.days
+        days:that.data.days
       });
     //清空
     } else {
-      this.setData({
-      days: []
+        this.setData({
+        days: []
       });
     }
  },
@@ -177,10 +192,34 @@ handleHealthyDetail: function () {
  calculateDays:function(year, month) {
     var that = this;
     const thisMonthDays = this.getThisMonthDays(year, month);
+
+    // getClockData(ths.data.formData)
+    // .then(res => {
+    //   wx.showToast({
+    //     icon: 'success',
+    //     title: '添加成功'
+    //   })
+    //   setTimeout(() => {
+    //     wx.navigateBack()
+    //   }, 2000)
+    // }).catch(err => {
+    //   console.log(err)
+    // })
+
+
+
     for (let i = 1; i <= thisMonthDays; i++) {
-      var obj = {
-      date: i,
-      isSign: true
+      //模拟数据   奇数天显示已打卡
+      if(i%2==0){
+        var obj = {
+          date: i,
+          isSign: 0
+          }
+      }else{
+        var obj = {
+          date: i,
+          isSign: 1
+          }
       }
       that.data.days.push(obj);
     }

@@ -5,7 +5,7 @@ import { regist } from '../../utils/api'
 import { from } from '../../utils/setting'
 Page({
   data: {
-    nowDate:'',
+    error: '',
     valiCodeText: '发送验证码',
     valiCodeCount: 60,
     formData: {
@@ -39,11 +39,8 @@ Page({
   },
 
   //页面加载
-  onLoad: function (options) {debugger
+  onLoad: function (options) {
     
-    this.setData({
-      nowDate : options.nowDate
-    })
   },
   onReady: function () {
   },
