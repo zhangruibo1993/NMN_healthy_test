@@ -4,9 +4,9 @@ module.exports = {
   // baseUrl:'https://ichegang.szzkcg.com/v2.0/',  //临时服务器
   // baseUrl:'http://127.0.0.1:8889/', //花生壳
   //  baseUrl:'http://192.168.1.55:8889/v2.0/',  //周华健本地 
-  baseUrl:'http://aofltest.qicp.vip/sale',  //张工本地
+  baseUrl:'http://127.0.0.1:8889/sale',  //张工本地
   // websocketUrl: 'ws://192.168.1.189:8889/sale/websocket/xcx',
-  from:"xcx_sale",
+  from:"xcx_health",
   timeout:"5000",
   successCode:0,//请求成功
   invalidCode:402,//登录失效

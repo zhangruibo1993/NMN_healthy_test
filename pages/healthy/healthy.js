@@ -1,13 +1,10 @@
 // pages/basicInfo/basicInfo.js
 const app = getApp()
-import { valiCode } from '../../utils/api'
-import { regist } from '../../utils/api'
+import { signUp } from '../../utils/api'
 import { from } from '../../utils/setting'
 Page({
   data: {
     nowDate:'',
-    valiCodeText: '发送验证码',
-    valiCodeCount: 60,
     formData: {
       valiType: 'reg'
     },
@@ -39,7 +36,7 @@ Page({
   },
 
   //页面加载
-  onLoad: function (options) {debugger
+  onLoad: function (options) {
     
     this.setData({
       nowDate : options.nowDate
@@ -106,9 +103,7 @@ Page({
             break;
         }
         data.multiIndex[1] = 0;
-        break;
-     
-        
+        break;       
     }
     console.log(data.multiIndex);
     this.setData(data);
@@ -120,17 +115,10 @@ Page({
     })
   },
   // 表单验证及提交
-  handleSubmit() {
-    this.selectComponent('#form').validate((valid, errors) => {
-      if (!valid) {
-        const firstError = Object.keys(errors)
-        if (firstError.length) {
-          this.setData({
-            error: errors[firstError[0]].message
-          })
-        }
-      } else {
-        regist(this.data.formData)
+  handleSubmit(e) {debugger
+    // this.selectComponent('#form') => {
+      
+      signUp(this.data.formData)
           .then(res => {
             wx.showToast({
               icon: 'success',
@@ -142,9 +130,8 @@ Page({
             }, 2000)
           }).catch(err => {
             console.log(err)
-          })
-      }
-    })
+          })  
+    // })
   },
   getUserInfo() {
     // 从后台获取用户信息，显示在页面中，更新缓存中的userInfo
@@ -162,61 +149,9 @@ Page({
       [`formData.${field}`]: e.detail.value
     })
   },
-  timerun() {
-    this.setData({
-      valiCodeText: '重新获取' + this.data.valiCodeCount
-    })
-    let timer = setTimeout(() => {
-      let valiCodeCount = this.data.valiCodeCount
-      this.setData({
-        valiCodeCount: valiCodeCount - 1
-      })
-      this.setData({
-        valiCodeText: '重新获取' + this.data.valiCodeCount
-      })
-      if (this.data.valiCodeCount > 0) {
-        this.timerun()
-      } else {
-        this.setData({
-          valiCodeText: '发送验证码',
-          valiCodeCount: 60
-        })
-      }
-      clearTimeout(timer)
-    }, 1000)
-  },
-  // 发送验证码给用户填写的手机号
-  handleSendValiCode() {
-    if (this.data.valiCodeText === '发送验证码') {
-      this.sendValiCode()
-    }
-  },
-  sendValiCode() {
-    this.selectComponent('#form').validate((valid, errors) => {
-      if (!valid) { // 如果有错误项
-        let flag = true
-        for (let i = 0; i < errors.length; i++) {
-          if (errors[i].name === 'phone') { // 遍历错误项，判断是否有手机号相关错误（未填或格式错误）
-            this.setData({
-              error: errors[i].message
-            })
-            flag = false
-            break
-          }
-        }
-        if (flag) {
-          this.timerun()
-          valiCode({
-            phone: this.data.formData.phone,
-            type: 'reg'
-          }).then(res => {
-          }).catch(err => {
-            console.log(err)
-          })
-        }
-      }
-    })
-  }
+  
+
+  
   // // 地区组件切换
   // bindRegionChange(e) {
   //   this.setData({

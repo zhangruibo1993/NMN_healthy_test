@@ -4,9 +4,9 @@ import {http} from './http';
 export function login(params){
   return  http('/xcx/login', 'post',params) 
 }
-// 注册
-export function regist(params) {
-  return http('/xcx/user/info', 'PUT', params)
+// 打卡
+export function signUp(params) {
+  return http('/sign', 'post', params)
 }
 // 获取用户信息
 export function userInfo(params) {
