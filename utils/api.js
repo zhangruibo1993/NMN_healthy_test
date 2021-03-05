@@ -66,5 +66,5 @@ export function rewardDrawal(params) {
 //  健康登记
 // 获取打卡登记数据
 export function getClockData(params){
-  return  http('/xcx/login', 'GET',params) 
+  return  http('/sign/month', 'GET',params,true) 
 }

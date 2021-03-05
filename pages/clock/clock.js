@@ -1,7 +1,7 @@
 // pages/clock/clock.js
 //打卡日历页面
 
-// import { getClockData } from '../../../utils/api'
+import { getClockData } from '../../utils/api'
 
 const app = getApp()
 
@@ -11,7 +11,6 @@ Page({
      * 页面的初始数据
      */
     data: {
-      objectId:'',
       otherDrugs_display:'none',
       detail_display:'none',
       days:[],
@@ -31,7 +30,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.setData({objectId : options.objectId}); 
       //获取当前年月 
       const date = new Date();
       
@@ -98,7 +96,7 @@ Page({
  * 页面上拉触底事件的处理函数
  */
 showData: function (e) {
-  console.log("今天星期:" + e.currentTarget.dataset.obj.date,this.data.cur_year,this.data.cur_month);
+  // console.log("今天星期:" + e.currentTarget.dataset.obj.date,this.data.cur_year,this.data.cur_month);
   let isSign = '0';
   if(e.currentTarget.dataset.obj.isSign == 1){
      isSign = '1';
@@ -134,6 +132,7 @@ radio_detailChange: function (e) {
   }
 
 },
+// 签到详情  按钮
 handleHealthyDetail: function (e) {
   if(this.data.cur_day == undefined){
     console("请先选定日期")
@@ -193,39 +192,56 @@ handleHealthyDetail: function (e) {
     var that = this;
     const thisMonthDays = this.getThisMonthDays(year, month);
 
-    // getClockData(ths.data.formData)
-    // .then(res => {
-    //   wx.showToast({
-    //     icon: 'success',
-    //     title: '添加成功'
-    //   })
-    //   setTimeout(() => {
-    //     wx.navigateBack()
-    //   }, 2000)
-    // }).catch(err => {
-    //   console.log(err)
-    // })
-
-
-
-    for (let i = 1; i <= thisMonthDays; i++) {
-      //模拟数据   奇数天显示已打卡
-      if(i%2==0){
+    if(month < 10){
+      month = '0' + month;  
+    }
+    const cur_month_time = year + "-" + month; 
+ 
+    //获取当月打卡数据
+    getClockData(  {month: cur_month_time,memberId:1}).then(res => {debugger
+      const resp = res.data;
+      for (let i = 1; i <= thisMonthDays; i++) {
+        var day = i;
+        if( i < 10 ){
+          day = '0' + i ; 
+        }
+        const targetTime = cur_month_time + "-" + day;
         var obj = {
           date: i,
           isSign: 0
+        };
+        
+        //判断是否 > 今天
+        var d = new Date;
+        var today = new Date(d.getFullYear (), d.getMonth (), d.getDate ());
+        var reg = /\d+/g;
+        var temp = targetTime.match (reg);
+        var foday = new Date (temp[0], parseInt (temp[1]) - 1, temp[2]);debugger
+
+        if (foday > today){
+          obj = {
+            date: i,
+            isSign: null
+          };
+        }else{
+          for (let j = 0; j < resp.length; j++) {
+            if(targetTime == resp[j].date){
+              obj = {
+                  date: i,
+                  isSign: resp[j].isSign
+                }
+                break;
+            }
           }
-      }else{
-        var obj = {
-          date: i,
-          isSign: 1
-          }
+        }
+        that.data.days.push(obj);
       }
-      that.data.days.push(obj);
-    }
-    this.setData({
-      days:that.data.days
-    });
+      this.setData({
+        days:that.data.days
+      }); 
+    }).catch(err => {
+      console.log(err)
+    })  
  },
 
  //匹配判断当月与当月哪些日子签到打卡

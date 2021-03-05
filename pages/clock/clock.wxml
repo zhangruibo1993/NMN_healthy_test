@@ -31,9 +31,14 @@
    <!-- 每个月份的有数字的单元格 -->
    <view class='cell' wx:else>
     <!-- 当前日期已签到 -->
-    <view bindtap="showData" data-obj="{{days[j+k]}}" class="{{days[j+k].isSign == 1?'':'noactive'}}" 
-         data-tagId="{{days[j+k].date}}" >
+    <view bindtap="showData" data-obj="{{days[j+k]}}"  wx:if="{{days[j+k].isSign == 1}}" >
       <text class="{{cur_day == days[j+k].date?'cellText':''}}">{{days[j+k].date}}</text>
+    </view>
+    <view bindtap="showData" data-obj="{{days[j+k]}}" wx:elif="{{days[j+k].isSign == 0}}" class="noactive"  >
+      <text class="{{cur_day == days[j+k].date?'cellText':''}}">{{days[j+k].date}}</text>
+    </view>
+    <view  data-obj="{{days[j+k]}}" wx:else="{{days[j+k].isSign == null}}" class="nullActive">
+      <text>{{days[j+k].date}}</text>
     </view>
     <!-- 当前日期未签到 -->
     <!-- <view wx:else  bindtap="showData" data-obj="{{days[j+k]}}">

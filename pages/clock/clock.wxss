@@ -64,6 +64,10 @@
 .cellText:hover{
   color: #fff;
 }
+
+.nullActive text{
+  color: #9b92926b;
+}
  
 
 .active {
