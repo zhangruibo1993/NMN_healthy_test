@@ -18,7 +18,7 @@
   align-items: center;
 }
 .user {
-  height: 300rpx;
+  height: 150rpx;
   padding-top: 50rpx;
   background-color: #ffffff;
   box-shadow: 0 3rpx 0 #F8F9FB;

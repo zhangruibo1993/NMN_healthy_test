@@ -20,7 +20,7 @@ module.exports = {
       }
       if (!switchLoading) {
         wx.showLoading({
-          title: '加载中'
+          title: '请求中，请稍后...'
         })
       }
 
@@ -36,6 +36,7 @@ module.exports = {
             switch (code) {
               case invalidCode:
                 wx.removeStorageSync('session_token')
+                wx.removeStorageSync('userInfo')
                 reject(res)
                 overtime();
               case errCode:

@@ -5,7 +5,7 @@
     "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
     "mp-toptips": "/miniprogram_npm/weui-miniprogram/toptips/toptips",
     "mp-actionSheet": "weui-miniprogram/actionsheet/actionsheet"
-  }
+  },
+  "navigationBarTitleText": "个人中心"
 
-  
 }

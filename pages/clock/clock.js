@@ -1,12 +1,8 @@
 // pages/clock/clock.js
 //打卡日历页面
-
 import { getClockData } from '../../utils/api'
-
 const app = getApp()
-
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -35,10 +31,10 @@ Page({
       
       const cur_year = date.getFullYear(); 
       const cur_month = date.getMonth() + 1;
-      const cur_day = date.getDay();
+      const cur_day = date.getDate();
       const weeks_ch = ['日', '一', '二', '三', '四', '五', '六'];
-      this.calculateEmptyGrids(cur_year, cur_month);
-      this.calculateDays(cur_year, cur_month);
+      //this.calculateEmptyGrids(cur_year, cur_month);
+      //this.calculateDays(cur_year, cur_month);
       //获取当前用户当前任务的签到状态
       // this.onGetSignUp();
       this.setData({
@@ -47,7 +43,6 @@ Page({
         cur_day,
         weeks_ch
       })
-
     },
 
  /**
@@ -61,7 +56,8 @@ Page({
  * 生命周期函数--监听页面显示
  */
  onShow: function () {
-
+  this.calculateEmptyGrids(this.data.cur_year, this.data.cur_month);
+  this.calculateDays(this.data.cur_year, this.data.cur_month);
  },
 
  /**
@@ -137,14 +133,11 @@ handleHealthyDetail: function (e) {
   if(this.data.cur_day == undefined){
     console("请先选定日期")
   } 
-  const nowDate =  this.data.cur_year + "年" + this.data.cur_month + "月" + this.data.cur_day + "日";
-
+  const nowDate =  this.data.cur_year + "-" + this.data.cur_month + "-" + this.data.cur_day;
   wx.navigateTo({
     url: "/pages/healthy/healthy?nowDate="+nowDate
   })
 },
-
-
 
  /**
  * 用户点击右上角分享
@@ -198,7 +191,7 @@ handleHealthyDetail: function (e) {
     const cur_month_time = year + "-" + month; 
  
     //获取当月打卡数据
-    getClockData(  {month: cur_month_time,memberId:1}).then(res => {debugger
+    getClockData(  {month: cur_month_time,memberId:1}).then(res => {
       const resp = res.data;
       for (let i = 1; i <= thisMonthDays; i++) {
         var day = i;
@@ -216,7 +209,7 @@ handleHealthyDetail: function (e) {
         var today = new Date(d.getFullYear (), d.getMonth (), d.getDate ());
         var reg = /\d+/g;
         var temp = targetTime.match (reg);
-        var foday = new Date (temp[0], parseInt (temp[1]) - 1, temp[2]);debugger
+        var foday = new Date (temp[0], parseInt (temp[1]) - 1, temp[2]);
 
         if (foday > today){
           obj = {
@@ -231,6 +224,17 @@ handleHealthyDetail: function (e) {
                   isSign: resp[j].isSign
                 }
                 break;
+            }
+            var nowDate = '';
+            if(this.data.cur_month < 10){
+              nowDate = this.data.cur_year +"-0"+ this.data.cur_month +"-"+ this.data.cur_day;
+            } else {
+              nowDate = this.data.cur_year +"-"+ this.data.cur_month +"-"+ this.data.cur_day;
+            }
+            if(nowDate == resp[j].date){
+              this.setData({
+                cur_isSignUp: resp[j].isSign,
+              });            
             }
           }
         }

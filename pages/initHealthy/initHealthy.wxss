@@ -6,10 +6,15 @@
 }
 
 .title .form_item{
- width: 400px;
+ width: 100%;
  }
 
 
 .submit-btn {
   margin-top: 30rpx;
+}
+
+.title-text{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -3,32 +3,16 @@
   <block wx:if="{{userInfo}}">
     <!-- 用户信息 -->
     <view class="user">
-      <view class="userinfo" bindtap="handleUserDetail">
+
+      <view class="userinfo">
         <view class="userinfo-item">
-          <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
-          <view class="user-detail">
             <view>
-              <image class="gender" src="{{userInfo.gender === 1 ? '../../icons/male.png' : '../../icons/female.png'}}"></image>
-              <text>{{userInfo.name}}</text>
-              <view class="viplevel">当前等级：{{userInfo.vipLevelText}}</view>
+              <text>{{userInfo.trueName}}</text>
+            </view>
+            <view>
+              (<text>{{userInfo.phone}}</text>)
             </view>
           </view>
-          </view>
-          <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="15"></mp-icon>
-      </view>
-      <view class="bonusinfo">
-        <view class="bonus-item"  bindtap="handleRewardMoney">
-          <view class="number">{{userInfo.moneyText}}</view>
-          <view class="bonus-label">奖励金</view>
-        </view>
-        <view class="bonus-item">
-          <view class="number">22</view>
-          <view class="bonus-label">推荐数</view>
-        </view>
-        <view class="bonus-item">
-          <view class="number">22</view>
-          <view class="bonus-label">成团数</view>
-        </view>
       </view>
     </view>
     <!-- 订单信息 -->
@@ -61,32 +45,10 @@
 
     <!-- 常用工具 -->
     <view class="tools">
-    <!-- 暂不支持提现到银行卡，银行卡管理功能隐藏 -->
-      <!-- <view class="row" bindtap="handleBankCard">
-        <view class="tool-label">
-          <image class="icon-tools" src="../../icons/bankcard.png"></image>
-          <text>银行卡</text>
-        </view>
-        <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
-      </view> -->
-      <view class="row" bindtap="handleChooseAddress">
-        <view class="tool-label">
-          <image class="icon-tools" src="../../icons/address.png"></image>
-          <text>收货地址</text>
-        </view>
-        <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
-      </view>
       <view class="row" bindtap="basicInfo">
         <view class="tool-label">
           <image class="icon-tools" src="../../icons/check.png"></image>
           <text>个人基本信息</text>
-        </view>
-        <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
-      </view>
-      <view class="row" bindtap="clock">
-        <view class="tool-label">
-          <image class="icon-tools" src="../../icons/clock.png"></image>
-          <text>打卡</text>
         </view>
         <mp-icon class="arrow" icon="arrow" color="#CCCCCC" size="12"></mp-icon>
       </view>
@@ -101,10 +63,12 @@
   </block>
 
   <!-- 登录/注册 -->
-  <button size="default" class="login-btn" hover-class="none" open-type="getUserInfo" bindgetuserinfo="handleLogin" wx:else>
+
+  <button size="default" class="login-btn" hover-class="none" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:else>
     <view class="login">
       <image class="user-avatar" src="../../icons/mine1.png"></image>
-      <text>登录 / 注册</text>
+
+      <text>登录</text>
     </view>
     <mp-icon class="arrow" icon="arrow" color="#07C160" size="18"></mp-icon>
   </button>

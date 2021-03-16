@@ -4,13 +4,33 @@ import {http} from './http';
 export function login(params){
   return  http('/xcx/login', 'post',params) 
 }
-// 打卡
-export function signUp(params) {
-  return http('/sign', 'post', params)
+// 手机号码
+export function getPhone(params){
+  return  http('/xcx/phone', 'post',params) 
+}
+// 填写会员基本信息
+export function saveBaseInfo(params){
+  return  http('/member/base/info', 'post',params) 
+}
+// 填写会员健康信息
+export function saveHealthInfo(params){
+  return  http('/member/health/info', 'post',params) 
+}
+// 注册
+export function regist(params) {
+  return http('/xcx/user/info', 'PUT', params)
 }
 // 获取用户信息
 export function userInfo(params) {
   return http('/xcx/user/info', 'GET', params, true)
+}
+// 获取用户打卡详细信息
+export function getSign(params) {
+  return http('/sign/info', 'GET', params, true)
+}
+// 会员健康打卡
+export function sign(params) {
+  return http('/sign', 'POST', params)
 }
 // 获取验证码
 export function valiCode(params) {
@@ -61,10 +81,8 @@ export function rewardDrawal(params) {
   return http('/reward/drawal', 'POST', params)
 }
 
-
-
 //  健康登记
 // 获取打卡登记数据
 export function getClockData(params){
-  return  http('/sign/month', 'GET',params,true) 
+  return  http('/sign/month', 'GET',params) 
 }

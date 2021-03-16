@@ -93,3 +93,10 @@ App({
     }
   }
 })
+
+      // {
+      //   "pagePath": "pages/vip/productdetail/productdetail",
+      //   "text": "产品简介",
+      //   "iconPath": "icons/vip.png",
+      //   "selectedIconPath": "icons/vip1.png"
+      // },

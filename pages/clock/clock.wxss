@@ -76,6 +76,9 @@
 .noactive{
   background-color:rgb(239, 153, 153)
 }
+.is-sign{
+  background-color:rgb(67, 201, 87)
+}
 .unhealthy{
   background-color:rgb(204, 176, 115)
 }
@@ -144,7 +147,6 @@
 
 .detail {
   padding-left: 162px;
-  color: rgb(238, 198, 65);
 }
 
 

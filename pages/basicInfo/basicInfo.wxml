@@ -4,71 +4,68 @@
 <mp-form id="form" rules="{{rules}}" models="{{formData}}">
   <mp-cells>
     <mp-cell prop="trueName" title="真实姓名" ext-class="">
-      <input bindinput="formInputChange" data-field="trueName" class="weui-input" placeholder="请填写用户名"/>
+      <!-- <input bindinput="formInputChange" data-field="trueName" class="weui-input" placeholder="请填写用户名"/> -->
+      <view class="number">{{curUser.trueName}}</view>
     </mp-cell>
     <mp-cell prop="phone" title="手机号" ext-class="">
-      <input type="number" bindinput="formInputChange" data-field="phone" class="weui-input" placeholder="请填写手机号"/>
-      <view slot="footer" class="weui-vcode-btn" bindtap="handleSendValiCode">{{valiCodeText}}</view>
+      <view class="number">{{curUser.phone}}</view>
     </mp-cell>
-    <mp-cell prop="valicode" title="验证码" ext-class="">
-      <input bindinput="formInputChange" data-field="valicode" class="weui-input" placeholder="请填写验证码"/>
+    <mp-cell prop="idCardNo" title="身份证号码" ext-class="">
+      <view class="number">{{curUser.idCardNo}}</view>
     </mp-cell>
     <mp-cell prop="age" title="年龄" ext-class="">
-      <input bindinput="formInputChange" data-field="age" class="weui-input" placeholder="请填写年龄"/>
+      <input bindinput="formInputChange" data-field="age" class="weui-input" placeholder="请填写年龄" value="{{curUser.memberBaseInfoVO.age}}"/>
+    </mp-cell>
+    <mp-cell prop="gender" title="性别" ext-class="">
+      <view class="section">
+        <picker bindchange="pickGender" value="{{genderIndex}}" range-key="name" range="{{genderObjectArray}}">
+          <view class="picker">
+           {{genderObjectArray[genderIndex].name}}
+          </view>
+        </picker>
+      </view>
     </mp-cell>
     <mp-cell prop="marriage" title="婚姻状况" ext-class="">
       <view class="section">
-        <picker bindchange="pickGender" value="{{index}}" range="{{maritalStatusList}}">
+        <picker bindchange="pickMarital" value="{{maritalIndex}}" range-key="name" range="{{maritalObjectArray}}">
           <view class="picker">
-           {{maritalStatusList[index]}}
+           {{maritalObjectArray[maritalIndex].name}}
           </view>
         </picker>
       </view>
     </mp-cell>    
     <mp-cell prop="nation" title="民族" ext-class="">
-      <input bindinput="formInputChange" data-field="nation" class="weui-input" placeholder="请填写民族"/>
+      <input bindinput="formInputChange" data-field="nation" class="weui-input" value="{{curUser.memberBaseInfoVO.nation}}" placeholder="请填写民族"/>
     </mp-cell>
     <mp-cell prop="height" title="身高(cm)" ext-class="">
-      <input bindinput="formInputChange" data-field="height" class="weui-input" placeholder="请填写身高"/>
+      <input bindinput="formInputChange" data-field="height" class="weui-input" value="{{curUser.memberBaseInfoVO.height}}" placeholder="请填写身高"/>
     </mp-cell>
     <mp-cell prop="weight" title="体重(kg)" ext-class="">
-      <input bindinput="formInputChange" data-field="weight" class="weui-input" placeholder="请填写体重"/>
-    </mp-cell>
-    <mp-cell prop="idCardNo" title="身份证号码" ext-class="">
-      <input bindinput="formInputChange" data-field="idCardNo" class="weui-input" placeholder="请填写身份证号"/>
-    </mp-cell>
-    <mp-cell prop="gender" title="性别" ext-class="">
-      <view class="section">
-        <picker bindchange="pickGender" value="{{index}}" range="{{genderList}}">
-          <view class="picker">
-           {{genderList[index]}}
-          </view>
-        </picker>
-      </view>
+      <input bindinput="formInputChange" data-field="weight" class="weui-input" value="{{curUser.memberBaseInfoVO.weight}}" placeholder="请填写体重"/>
     </mp-cell>
     <mp-cell prop="nativePlace" title="籍贯" ext-class="">
-      <input bindinput="formInputChange" data-field="nativePlace" class="weui-input" placeholder="请填写籍贯"/>
+      <input bindinput="formInputChange" data-field="nativePlace" value="{{curUser.memberBaseInfoVO.nativePlace}}" class="weui-input" placeholder="请填写籍贯"/>
     </mp-cell>
-    <mp-cell prop="professional" title="职业" ext-class="">
+    <mp-cell prop="professional" title="工作状况" ext-class="">
       <view class="section">
-        <picker mode="multiSelector" bindchange="pickProfessional" bindcolumnchange="pickProfessionalChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <picker bindchange="pickWorkStatus" value="{{workIndex}}" range-key="name" range="{{workObjectArray}}">
           <view class="picker">
-           {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+            {{workObjectArray[workIndex].name}}
           </view>
         </picker>
       </view> 
     </mp-cell>
     
-    <!-- <mp-cell prop="address" title="收货地址" ext-class="">
+    <mp-cell prop="address" title="联系地址" ext-class="">
       <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
         <view class="picker">
-          {{region[0]}}，{{region[1]}}，{{region[2]}}
+          {{region}}
         </view>
       </picker>
     </mp-cell>
     <mp-cell prop="detail">
-      <textarea class="address_detail" rows="3" placeholder="详细地址" data-field="detail" bindinput="formInputChange"></textarea>
-    </mp-cell> -->
+      <textarea class="address_detail" rows="3" placeholder="详细地址" value="{{curUser.memberBaseInfoVO.address}}" data-field="address" bindinput="formInputChange"></textarea>
+    </mp-cell>
   </mp-cells>
 </mp-form>
-<button class="weui-btn submit-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="handleSubmit">提交</button>
+<button class="weui-btn submit-btn" type="primary" bindtap="handleSubmit">提交</button>

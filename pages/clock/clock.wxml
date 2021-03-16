@@ -10,9 +10,9 @@
  <view class="date">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
  <!-- 下一个月 -->
  <view class="next" bindtap="handleCalendar" data-handle="next">
-  <image src='../../icons/right-arrow.png'></image>
+  <image src='../../icons/right-arrow.png'></image> 
  </view>
- </view>
+ </view>  
  <!-- 显示星期 -->
  <view class="week">
     <view wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>

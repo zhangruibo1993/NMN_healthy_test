@@ -1,37 +1,54 @@
 <!--pages/basicInfo/basicInfo.wxml-->
-
 <view class="title" style="">{{nowDate}} 健康信息打卡</view>
 <mp-form id="form" rules="{{rules}}" models="{{formData}}">
-  <mp-cells wx:for="{{items}}">
-    <mp-cell prop="{{item.prop}}" title="{{item.title}}" class="form_item"></mp-cell>
-    <radio-group class="radio-group">
-      <label class="radio" wx:for="{{choose_items}}">
-         <radio style="padding-left:15px" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
-      </label>
-   </radio-group>
-   
-  </mp-cells>
-      <mp-cell prop="isEatNMN" title="20.是否服用NMN" class="form_item"></mp-cell>
-      <radio-group class="radio-group">
-            <label wx:for="{{choose_items}}">
-               <radio style="padding-left:10px" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
-            </label>
-      </radio-group>
-      <mp-cell prop="isEatOtherDrugs" title="21.是否服用其他药物?" class="form_item"></mp-cell>
-      <radio-group class="radio-group"  bindchange="radio_drugsChange" >
-            <label wx:for="{{choose_items}}">
-               <radio style="padding-left:10px" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
-            </label>
-      </radio-group>
-      <view style="display:{{otherDrugs_display}}" >
-         <label class="label">其他药物:</label>
-         <input data-field="otherDrugs"  class="drugsChange_text"/>
-   </view>
 
-     <mp-cells>
-      <mp-cell prop="remark" title="其他补充:" style="width:400px"></mp-cell>
-      <input bindinput="formInputChange" data-field="remark" class="weui-input" />
+   <mp-cells>
+      <text class="title-text">是否服用NMN</text> 
+      <radio-group class="radio-group" bindchange="formInputChange" data-field="isNmn">
+         <label>
+            <radio style="padding-left:10px" value="1" checked="{{isNmn == 1 ? true : false}}" />是
+         </label>
+         <label>
+            <radio style="padding-left:10px" value="0" checked="{{isNmn == 0 ? true : false}}" />否
+         </label>
+      </radio-group>
    </mp-cells>
-  
+   <mp-cells>
+      <text class="title-text"></text> 
+      <!-- <textarea class="address_detail" rows="2" placeholder="描述药物信息"  value="{{otherMedicine}}" 
+      data-field="otherMedicine" bindinput="formInputChange">
+      </textarea> -->
+      <view class="page-section"> 
+      <view class="page-section-title">是否服用其他药物信息</view>
+      <view class="weui-cells weui-cells_after-title">
+        <checkbox-group bindchange="formInputChange" data-field="otherDrugList">
+          <label class="weui-cell weui-check__label" wx:for="{{otherDrugsItems}}" wx:key="{{item.value}}">
+            <view class="weui-cell__hd">
+              <checkbox value="{{item.value}}" checked="{{item.checked}}" />
+            </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+
+  </mp-cells>
+
+   <mp-cells wx:for="{{items}}" wx:for-item="itemObj">
+    <!-- <mp-cell prop="{{item.prop}}" title="{{item.title}}" class="form_item"></mp-cell> -->
+    <text class="title-text">{{itemObj.title}}</text>
+    <radio-group class="radio-group" data-field="{{itemObj.prop}}" bindchange="formInputChange">
+      <label class="radio" wx:for="{{choose_items}}">
+         <radio style="padding-left:15px" value="{{item.value}}" checked="{{item.value == itemObj.checkValue ? true : false}}" />{{item.name}}
+      </label>
+    </radio-group>
+   </mp-cells>
+   <mp-cells>
+      <text class="title-text">20.其他补充</text>
+      <textarea class="address_detail" rows="2" placeholder="其他补充" 
+      value="{{remark}}" 
+      data-field="remark" bindinput="formInputChange">
+      </textarea>
+  </mp-cells>
 </mp-form>
-<button class="weui-btn submit-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="handleSubmit">提交</button>
+<button class="weui-btn submit-btn" type="primary" bindtap="handleSubmit">提交</button>

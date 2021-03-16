@@ -1,6 +1,6 @@
 import { from } from "../../utils/setting"
 // pages/mine/mine.js
-import { login, userInfo, orderCount } from '../../utils/api'
+import { login, getPhone, userInfo, orderCount } from '../../utils/api'
 Page({
   data: {
     userInfo: null,
@@ -8,10 +8,16 @@ Page({
       notDeliveryCount: 0, // 未发货
       deliveryCount: 0, // 已发货
       finishCount: 0 // 已完成
-    }
+    },
+    wxCode : ""
   },
   onLoad: function (options) {
     this.getUserInfoFromStorage()
+    wx.login({
+      success: res => {
+        this.data.wxCode = res.code;
+      }
+    })
   },
   onReady: function () {
   },
@@ -47,63 +53,39 @@ Page({
     }
   },
   // 点击登录按钮，获取用户信息
-  handleLogin(e) {debugger
-    if (!e.detail.userInfo) { // 如果open-type中没有userInfo，说明是用户拒绝授权，给出提示
+  getPhoneNumber(e) {
+    console.log("no");
+    console.log(e.detail.errMsg);
+    if (e.detail.errMsg !== "getPhoneNumber:ok") { // 如果用户拒绝
       wx.showToast({
         icon: 'none',
-        title: '请允许获取您的公开信息'
+        title: '请允许获取您的手机号码'
       })
     } else {
-      // 请求后台登录接口，判断用户是否已注册
-      wx.login({
-        success: res => {
-          wx.getUserInfo({
-            success: info => {
-              this.doLogin(res.code, info)
-            }
-          })
-        }
-      })
-    }
-  },
-  // 向后台发送登录请求
-  doLogin(code, info) {
-    const params = {
-      code: code,
-      iv: info.iv,
-      rawData: info.rawData,
-      signature: info.signature,
-      encryptedData: info.encryptedData
-    }
-    if (this.data.vipReference) {
-      params.vipReference = this.data.vipReference
-    }
-    login(params).then(res => {
-      // 后台登录接口请求成功后将session_token缓存起来
-      wx.setStorage({
-        key: 'session_token',
-        data: res.data.session_token,
-        success: () => {
-          if (res.data.status === 0) { // 说明该用户尚未注册，跳转到注册页面
-            wx.showModal({
-              title: '温馨提示',
-              content: '您尚未注册，请先注册',
-              success: res => {
-                if (res.confirm) {
-                  wx.navigateTo({
-                    url: '/pages/regist/regist',
-                  })
-                }
-              }
-            })
-          } else if (res.data.status === 1) { // 说明该用户已经注册，获取用户信息并显示
+      var iv = e.detail.iv;
+      var encryptedData = e.detail.encryptedData;  
+      const params = {
+        code: this.data.wxCode,
+        iv: iv,
+        encryptedData: encryptedData
+      }
+      getPhone(params).then(res => {
+        // 后台登录接口请求成功后将session_token缓存起来
+        wx.setStorage({
+          key: 'session_token',
+          data: res.data.session_token,
+          success: () => {
             this.getUserInfo()
           }
-        }
+        })
+      }).catch(err => {
+        wx.login({
+          success: res => {
+            this.data.wxCode = res.code;
+          }
+        })
       })
-    }).catch(err => {
-      console.log(err)
-    })
+    }
   },
   getUserInfo(isShowToast = true) {
     // 从后台获取用户信息，显示在页面中，更新缓存中的userInfo
@@ -119,9 +101,43 @@ Page({
         this.setData({
           userInfo
         })
+        console.log(userInfo);
         wx.setStorageSync('userInfo', userInfo)
+        if(userInfo.status === 2){
+          //未登记基本信息
+          wx.showModal({
+            title: '温馨提示',
+            content: '您尚未登记个人基本信息',
+            success: res => {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/basicInfo/basicInfo',
+                })
+              }
+            }
+          })
+        } else if(userInfo.status === 3){
+          //未登记基本信息
+          wx.showModal({
+            title: '温馨提示',
+            content: '您尚未登记身体健康信息',
+            success: res => {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/initHealthy/initHealthy',
+                })
+              }
+            }
+          })
+        }
       }).catch(err => {
         console.log(err)
+        if(err.data.code === 402){
+          //登录信息过期
+          this.setData({
+            userInfo : null
+          })
+        }
       })
   },
   // 获取订单各状态数量
@@ -168,12 +184,6 @@ Page({
       fail: res => {
         console.log('地址获取失败', res)
       }
-    })
-  },
-  // 点击查看用户详情页面
-  handleUserDetail() {
-    wx.navigateTo({
-      url: '/pages/mine/userdetail/userdetail',
     })
   },
   // 点击细胞检测结果
